@@ -2,7 +2,7 @@
 %
 
 
-x1 = -4*pi:0.5:4*pi;
+x1 = -pi:2:pi;
 y1 = x1;
 [X1, Y1] = meshgrid(x1, y1);
 Z1 = (0.3)*sin(X1);
@@ -31,5 +31,10 @@ figure(5), surface(X1, Y1, Z1i), view(3)
 figure(6), surface(X2, Y2, Z2i), view(3)
 
 
+A = 2 + 3*j;
+B = A;
+C = A*B;
 
+zz = fft2UV(C1);
+figure(7), surface(X1, Y1, abs(zz)), view(3)
 
