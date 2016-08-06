@@ -24,17 +24,23 @@ Z2i = ifft2(C2);
 dZ1 = Z1 - Z1i;
 dZ2 = Z2 - Z2i;
 
-figure(3), surface(X1, Y1, dZ1), view(3)
-figure(4), surface(X2, Y2, dZ2), view(3)
-
-figure(5), surface(X1, Y1, Z1i), view(3)
-figure(6), surface(X2, Y2, Z2i), view(3)
+%figure(3), surface(X1, Y1, dZ1), view(3)
+%%figure(4), surface(X2, Y2, dZ2), view(3)
+%
+%figure(5), surface(X1, Y1, Z1i), view(3)
+%figure(6), surface(X2, Y2, Z2i), view(3)
 
 
 A = 2 + 3*j;
 B = A;
 C = A*B;
 
-zz = fft2UV(C1);
-figure(7), surface(X1, Y1, abs(zz)), view(3)
+zz = fft2XY(Z1);
+
+difXY = C1 - zz;
+
+C1
+zz
+
+%figure(7), surface(X1, Y1, abs(zz)), view(3)
 
