@@ -36,5 +36,5 @@ B = A;
 C = A*B;
 
 zz = fft2UV(C1);
-figure(7), surface(X1, Y1, zz), view(3)
+figure(7), surface(X1, Y1, abs(zz)), view(3)
 

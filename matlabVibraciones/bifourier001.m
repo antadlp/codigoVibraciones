@@ -35,6 +35,8 @@ A = 2 + 3*j;
 B = A;
 C = A*B;
 
-zz = fft2UV(C1);
-figure(7), surface(X1, Y1, abs(zz)), view(3)
+zz = fft2XY(Z1);
+
+difXY = C1 - zz
+%figure(7), surface(X1, Y1, abs(zz)), view(3)
 

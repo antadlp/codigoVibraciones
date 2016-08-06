@@ -1,11 +1,9 @@
-function zz = fft2UV(Z)
+function zz = fft2XY(Z)
 
 % m renglones => x
 % n columnas => y
 
 [M N] = size(Z);
-
-MN = 1/(M*N);
 
 for u=1:M
    for v=1:N
@@ -17,7 +15,7 @@ for u=1:M
          for y=1:N
             S = ['Zi: ', num2str(Z(u,v))];
             disp(S)
-            zz(u,v) = zz(u,v) + Z(x,y)*(sin(2*pi*((u-1)*(x-1)/M+(v-1)*(y-1)/N))+j*cos(2*pi*((u-1)*(x-1)/M+(v-1)*(y-1)/N)));
+            zz(u,v) = zz(u,v) + Z(x,y)*(sin(2*pi*((u-1)*(x-1)/M+(v-1)*(y-1)/N))-j*cos(2*pi*((u-1)*(x-1)/M+(v-1)*(y-1)/N)));
          end
       end
    end
