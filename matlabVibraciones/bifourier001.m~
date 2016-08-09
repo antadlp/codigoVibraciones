@@ -36,13 +36,16 @@ B = A;
 C = A*B;
 
 zz = fft2UV(C1);
+zz2 = fft2UV(C2);
 
 difXY = Z1 - zz;
 
-Z1
-zz
-
+Z1;
+zz;
 
 
 figure(7), surface(X1, Y1, real(zz)), view(3)
+figure(8), surface(X2, Y2, real(zz2)), view(3)
+
+
 
