@@ -27,11 +27,11 @@ axis([t(1) 12*P2 min(x) max(x)])
 %axis([t(1) P min(x) max(x)])
 
 m = length(x);          % Window length
-n = pow2(nextpow2(m));  % Transform length
+%n = pow2(nextpow2(m))  % Transform length
+n = 512;
 y = fft(x,n);           % DFT
 f = (0:n-1)*(fs/n);     % Frequency range
 power = y.*conj(y)/n;   % Power of the DFT
-
 
 figure(2), plot(f,power)
 xlabel('Frequency (Hz)')
@@ -41,6 +41,12 @@ title('{\bf Periodogram}')
 y0 = fftshift(y);          % Rearrange y values
 f0 = (-n/2:n/2-1)*(fs/n);  % 0-centered frequency range
 power0 = y0.*conj(y0)/n;   % 0-centered power
+
+fft1 = fft(x);
+power1 = fft1.*conj(fft1);
+figure(5), plot(t, power1)
+figure(6), plot(t, real(fft1))
+
 
 figure(3), plot(f0,power0)
 xlabel('Frequency (Hz)')
@@ -55,6 +61,10 @@ Z1 = (1.3)*sin(2*pi*fr1*X1) ...              % 15 Hz component
   + (1.7)*sin(2*pi*fr2*(X1-2));          % 40 Hz component
 
 figure(4), surface(X1, Y1, Z1,'EdgeColor', 'none'), view(3)
+
+Zfft = fft2(Z1);
+
+
 
 
 
