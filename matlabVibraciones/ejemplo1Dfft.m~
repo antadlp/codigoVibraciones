@@ -13,8 +13,7 @@ tf = max([P1 P2]);
 %t = 0:.01:10;                      % 10 sec sample
 t = 0:1/fs:10-1/fs;                      % 10 sec sample
 
-x = (1.3)*sin(2*pi*fr1*t) ...              % 15 Hz component
-  + (1.7)*sin(2*pi*fr2*(t-2));          % 40 Hz component
+x = (1.3)*sin(2*pi*fr1*t).*((1.7)*sin(2*pi*fr2*(t-2)));          % 40 Hz component
 %  + 2.5*gallery('normaldata',size(t),4); % Gaussian noise;
 
 figure(1), plot(t, x)
@@ -57,8 +56,7 @@ t = t(1):.01:12*P2;
 x1 = t;
 y1 = x1;
 [X1, Y1] = meshgrid(x1, y1);
-Z1 = (1.3)*sin(2*pi*fr1*X1) ...              % 15 Hz component
-  + (1.7)*sin(2*pi*fr2*(X1-2));          % 40 Hz component
+Z1 = (1.3)*sin(2*pi*fr1*X1).*((1.7)*sin(2*pi*fr2*(Y1-2)));          % 40 Hz component
 
 figure(4), surface(X1, Y1, Z1,'EdgeColor', 'none'), view(3)
 
