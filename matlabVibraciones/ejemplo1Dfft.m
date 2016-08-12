@@ -132,7 +132,7 @@ for i=1:M
 end
 
 Z7(Z7==0)=NaN;
-figure('ZName', 'Z7'), surface(X2, Y2, Z7,'EdgeColor', 'none'), view(3)
+figure('Name', 'Z7'), surface(X2, Y2, Z7,'EdgeColor', 'none'), view(3)
 
 Z8 = Z6/(k*maxP);
 %Z8(Z8<=10)=NaN;

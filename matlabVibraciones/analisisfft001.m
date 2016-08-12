@@ -1,10 +1,5 @@
-fs = 100;
-fr1 = 2;
-fr2 = 7;
+function y = analisisfft001(fs, Z1)
 
-t = 0:1/fs:2-1/fs;                      % 10 sec sample
-x = t;
-y = x;
 [X1 Y1] = meshgrid(x, y);
 
 Z1 = (1.3)*sin(2*pi*fr1*X1)+((1.7)*sin(2*pi*fr2*(X1-2))) ...
@@ -30,7 +25,6 @@ Zc3 = Z1(:, floor(M/3));
 Yc3 = Y1(:, floor(M/3));
 figure('Name', 'Zc3')
 plot(Yc3, Zc3)
-
 
 Zc4 = Z1(:, floor(2*M/3));
 Yc4 = Y1(:, floor(2*M/3));
