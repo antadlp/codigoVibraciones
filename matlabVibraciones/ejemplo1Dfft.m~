@@ -98,6 +98,41 @@ Z5 = Z2s.*conj(Z2s)/M;
 Z5(Z5==0)=NaN;
 figure('Name', 'power 2conjNaN'), surface(X2, Y2, Z5,'EdgeColor', 'none'), view(3)
 
+Z6 = Z2s.*conj(Z2s);
+maxP = maxValueMatrix(Z6);
+k = 0.05;
+Z6N = Z6/(k*maxP);
+
+umbral = 1/100;
+for i=1:M
+   for j=1:N
+      if (Z6N(i, j) <= umbral)
+         Z6N(i, j) = 0;
+      else
+         Z6N(i, j) = Z6N(i, j);
+      end
+   end
+end
+
+Z6N(Z6N==0)=NaN;
+figure('Name', 'power 2conjNaNN'), surface(X2, Y2, Z6N,'EdgeColor', 'none'), view(3)
+
+Z7 = Z2s.*conj(Z2s);
+
+umbral = 100;
+for i=1:M
+   for j=1:N
+      if (Z6N(i, j) <= umbral)
+         Z6N(i, j) = 0;
+      else
+         Z6N(i, j) = Z6N(i, j);
+      end
+   end
+end
+
+Z6N(Z6N==0)=NaN;
+figure('Name', 'power 2conjNaNNN'), surface(X2, Y2, Z6N,'EdgeColor', 'none'), view(3)
+
 
 
 
