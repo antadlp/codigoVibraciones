@@ -6,14 +6,14 @@ fr1 = 2;
 fr2 = 7;
 
 P1 = 1/fr1;
-P1 = 1/fr2;
+P2 = 1/fr2;
 
 tf = max([P1 P2]);
 
 %t = 0:.01:10;                      % 10 sec sample
 t = 0:1/fs:10-1/fs;                      % 10 sec sample
 
-x = (1.3)*sin(2*pi*fr1*t).*((1.7)*sin(2*pi*fr2*(t-2)));          % 40 Hz component
+x = (1.3)*sin(2*pi*fr1*t)+((1.7)*sin(2*pi*fr2*(t-2)));          % 40 Hz component
 %  + 2.5*gallery('normaldata',size(t),4); % Gaussian noise;
 
 figure(1), plot(t, x)
@@ -45,18 +45,27 @@ fft1 = fft(x);
 power1 = fft1.*conj(fft1);
 figure(5), plot(t, power1)
 figure(6), plot(t, real(fft1))
+y1 = fftshift(power1);          % Rearrange y values
+t = 0:1/fs:10-1/fs;                      % 10 sec sample
+tff = length(y1);
+dt = abs(t(2) - t(1));
 
+t = 0:(tff-1);
+%t = (-tff/2:1/fs:tff/2);
+
+figure(7), plot(t, y1)
 
 figure(3), plot(f0,power0)
 xlabel('Frequency (Hz)')
 ylabel('Power')
 title('{\bf 0-Centered Periodogram}')
 
+t = 0:1/fs:10-1/fs;                      % 10 sec sample
 t = t(1):.01:12*P2;
 x1 = t;
 y1 = x1;
 [X1, Y1] = meshgrid(x1, y1);
-Z1 = (1.3)*sin(2*pi*fr1*X1).*((1.7)*sin(2*pi*fr2*(Y1-2)));          % 40 Hz component
+Z1 = (1.3)*sin(2*pi*fr1*X1)+((1.7)*sin(2*pi*fr2*(X1-2)));          % 40 Hz component
 
 figure(4), surface(X1, Y1, Z1,'EdgeColor', 'none'), view(3)
 
