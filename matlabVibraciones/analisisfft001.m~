@@ -1,11 +1,7 @@
 function y = analisisfft001(fs, Z1, X1, Y1, S)
 
 
-Z1 = (1.3)*sin(2*pi*fr1*X1)+((1.7)*sin(2*pi*fr2*(X1-2))) ...
-+ (1.3)*sin(2*pi*fr1*Y1)+((1.7)*sin(2*pi*fr2*(Y1-2)));
-
 [M N] = size(Z1);
-
 S1 = strcat('Z1 ', S);
 figure('Name', S1)
 surface(X1, Y1, Z1,'EdgeColor', 'none'), view(3)
@@ -48,6 +44,8 @@ maxP = maxValueMatrix(Z1P);
 k = 0.05;
 Z1P = Z1P/(k*maxP);
 surface(X2, Y2, Z1P,'EdgeColor', 'none'), view(3)
+
+y = Z1P;
 
 
 
