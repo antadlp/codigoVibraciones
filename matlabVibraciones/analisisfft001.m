@@ -40,16 +40,20 @@ y2 = x2;
 
 S1P = strcat('Z1P-', S);
 figure('Name', S1P)
-maxP = maxValueMatrix(Z1P)
+maxP = maxValueMatrix(Z1P);
 k = 0.05;
 Z1Pk = Z1P/(k*maxP);
 surface(X2, Y2, Z1Pk,'EdgeColor', 'none'), view(3)
+
+Sms = strcat('Zms-', S);
+figure('Name', Sms)
+mesh(X2, Y2, Z1Pk)
 
 l = 1;
 for i=1:M
    for j=1:N
       if (Z1P(i,j) >= 0.5*maxP)
-         y(l) = Z1P(i,j);
+         y(l, :) = [x2(i) y2(j)];
          l = l + 1;
       end
    end
