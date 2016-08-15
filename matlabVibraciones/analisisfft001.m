@@ -52,7 +52,7 @@ mesh(X2, Y2, Z1Pk)
 l = 1;
 for i=1:M
    for j=1:N
-      if (Z1P(i,j) >= 0.5*maxP)
+      if (Z1P(i,j) >= 0.00001*maxP)
          y(l, :) = [x2(i) y2(j)];
          l = l + 1;
       end
