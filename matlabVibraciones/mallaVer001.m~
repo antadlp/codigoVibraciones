@@ -8,16 +8,16 @@ Z1 = A(:,3);
 X1 = A(:, 1);
 Y1 = A(:, 2);
 
-X1 = floor(X1*10)/10;
-Y1 = floor(Y1*10)/10;
+X1 = floor(X1*100)/100;
+Y1 = floor(Y1*100)/100;
 
 xmax = max(X1);
 xmin= min(X1);
-x = xmin:1/10:xmax;
+x = xmin:1/100:xmax;
 
 ymax = max(Y1);
 ymin= min(Y1);
-y = ymin:1/10:ymax;
+y = ymin:1/100:ymax;
 
 
 
