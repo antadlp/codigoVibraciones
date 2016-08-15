@@ -17,26 +17,27 @@ ymax = max(Y1);
 ymin= min(Y1);
 y = ymin:1/10:ymax;
 
-Z = zeros(length(x), length(y));
-for i=1:length(x)
-   for j=1:length(X1)
-      if (x(i) == X1(j))
-         for l=1:length(y)
-            for m=1:length(Y1)
-               if (y(l) == Y1(m))
-                  Z(i,l) = Z1(m);
-                  Z2(n,3) = Z(i,l);
-                  Z2(n,1) = x(i);
-                  Z2(n,2) = y(j);
-                  n = n + 1;
-               end
-            end
-         end
-      end
-   end
-end
-
-
+%n = 1;
+%Z = zeros(length(x), length(y));
+%for i=1:length(x)
+%   for j=1:length(X1)
+%      if (x(i) == X1(j))
+%         for l=1:length(y)
+%            for m=1:length(Y1)
+%               if ((y(l) == Y1(m)) & (x(i) == X1(m)))
+%                  Z(i,l) = Z1(m);
+%                  Z2(n,3) = Z(i,l);
+%                  Z2(n,1) = x(i);
+%                  Z2(n,2) = y(j);
+%                  n = n + 1
+%               end
+%            end
+%         end
+%      end
+%   end
+%end
+%
+%
 %Z2 = zeros(length(X1), 3);
 %n = 1;
 %for i=1:length(x)
@@ -51,8 +52,14 @@ end
 %end
 
 fileID = fopen('frameCheck.dat','w');
+fileIDx = fopen('frameCheckx.dat','w');
+fileIDX = fopen('frameCheckX.dat','w');
 fprintf(fileID, '%f %f %f\n', Z2);
+fprintf(fileIDx, '%f\n', x');
+fprintf(fileIDX, '%f\n', X1);
 fclose(fileID);
+fclose(fileIDx);
+fclose(fileIDX);
 
 [X Y] = meshgrid(x, y);
 figure('Name', 'surface')
