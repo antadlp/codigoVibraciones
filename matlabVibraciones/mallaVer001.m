@@ -1,6 +1,8 @@
 filename = 'frame-500-002.dat';
 A = importdata(filename);
 
+format short e
+
 
 Z1 = A(:,3);
 X1 = A(:, 1);
@@ -17,8 +19,59 @@ ymax = max(Y1);
 ymin= min(Y1);
 y = ymin:1/10:ymax;
 
+
+
+n = 1;
+p = 1;
+Z = zeros(length(x), length(y));
+
+fileID = fopen('verXX.dat', 'w');
+
+for i=1:length(X1)
+   
+   fprintf(fileID, 'VERIFICANDO %f\n', X1(i));
+      
+   S1 = 'NO';
+   for j=1:length(x)
+    
+      if (X1(i) == x(j))
+         S1 = 'SI!!';
+      end
+      
+      fprintf(fileID, '%f\t%f\t%s\n', X1(i), x(j), S1);
+   
+   end
+end
+
+
+
+%
 %n = 1;
+%p = 1;
 %Z = zeros(length(x), length(y));
+%for i=1:length(X1)
+%   for j=1:length(x)
+%      if (X1(i) == x(j))
+%         p = p + 1
+%         for m=1:length(y)
+%            if (Y1(i) == y(m))
+%               Z(j,m) = Z1(i);
+%               Z2(n,3) = Z(j,m);
+%               Z2(n,1) = x(i);
+%               Z2(n,2) = y(m);
+%               n = n + 1
+%            end
+%         end
+%      end
+%   end
+%end
+%
+%
+
+
+
+
+%n = 1;
 %for i=1:length(x)
 %   for j=1:length(X1)
 %      if (x(i) == X1(j))
@@ -54,7 +107,7 @@ y = ymin:1/10:ymax;
 fileID = fopen('frameCheck.dat','w');
 fileIDx = fopen('frameCheckx.dat','w');
 fileIDX = fopen('frameCheckX.dat','w');
-fprintf(fileID, '%f %f %f\n', Z2);
+%fprintf(fileID, '%f %f %f\n', Z2);
 fprintf(fileIDx, '%f\n', x');
 fprintf(fileIDX, '%f\n', X1);
 fclose(fileID);
