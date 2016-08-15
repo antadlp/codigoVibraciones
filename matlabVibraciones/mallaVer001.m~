@@ -8,8 +8,27 @@ Y1 = A(:, 2);
 
 xmax = max(X1);
 xmin= min(X1);
-
 x = xmin:1/10000:xmax;
+
+ymax = max(Y1);
+ymin= min(Y1);
+y = ymin:1/10000:ymax;
+
+Z = zeros(length(x), length(y));
+for i=1:length(x)
+   for j=1:length(X1)
+      if (x(i) == X1(j))
+         for l=1:length(y)
+            for m=1:length(Y1)
+               if (y(l) == Y1(m))
+                  Z(i,l) = Z(m);
+               end
+            end
+         end
+      end
+   end
+end
+
 
 
 
