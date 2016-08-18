@@ -32,12 +32,12 @@ fileIDY = fopen('verY2.dat', 'w');
 
 for i=1:length(X1)
    
-   fprintf(fileID, '\nVERIFICANDO %f\n', X1(i));
+   fprintf(fileIDX, '\nVERIFICANDO %f\n', X1(i));
 
    xCheck = abs(x - X1(i));
    [xx I(i)] = min(xCheck);
      
-   fprintf(fileID, '%f\t%f\n\n', X1(i), x(I(i)));
+   fprintf(fileIDX, '%f\t%f\n\n', X1(i), x(I(i)));
    
    yCheck = abs(y - Y1(i));
    [yy J(i)] = min(yCheck);
@@ -46,7 +46,7 @@ for i=1:length(X1)
    fprintf(fileIDY, '%f\t%f\n\n', Y1(i), y(J(i)));
 
    Z(I(i), J(i)) = Z1(i);
-   z2(i,3) = z(I(i), J(i));
+   z2(i,3) = Z(I(i), J(i));
    z2(i,1) = x(I(i));
    z2(i,2) = y(J(i));
 
@@ -55,29 +55,27 @@ end
 fclose(fileIDX);
 fclose(fileIDY);
 
-r = 1.0;
+r = 0.5;
 Zr = zeros(length(x), length(y));
 
 
-l = 1;
-for i=1:length(x)
-   for j=1:length(y)
+for l=1:length(X1)
+   for i=1:length(x)
+      for j=1:length(y)
 
-      if ( (abs(x(i) - x(I(l))) <= r) & (abs(y(j) - y(J(l))) <= r))
+         ecC = (x(i) - x(I(l)))^2 + (y(j) - y(J(l)))^2;
 
-         sg = ((x(i)*y(i))/abs((x(i)*y(i))));
-         Zr(i,j) = sg*sqrt(r^2 - (x(i) - x(I(l)))^2 ...
-         - (y(j) - y(J(l)))^2);
-         l = l+1;
-
-      else 
-
-         Zr(i,j) = NaN;
+         if (ecC <= r^2)
+        
+            Zr(i,j) = sqrt(r^2 - ecC);
+ 
+         end
 
       end
-
    end
 end
+
+
 
 
 
