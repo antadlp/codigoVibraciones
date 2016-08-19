@@ -58,6 +58,15 @@ fclose(fileIDY);
 r = 0.5;
 Zr = zeros(length(x), length(y));
 
+for i=1:length(x)
+   for j=1:length(y)
+
+      ZrC(i,j) = NaN;
+
+   end
+end
+
+
 
 for l=1:length(X1)
    for i=1:length(x)
@@ -67,13 +76,36 @@ for l=1:length(X1)
 
          if (ecC <= r^2)
         
-            Zr(i,j) = sqrt(r^2 - ecC);
- 
+            Zr(i,j,l) = sqrt(r^2 - ecC);
+            ZrC(i,j)= sqrt(r^2 - ecC); 
+
+         else
+
+            Zr(i,j,l) = NaN;
+
          end
 
       end
    end
 end
+
+
+%for l=1:length(X1)
+%   for i=1:length(x)
+%      for j=1:length(y)
+%
+%
+%         if (Zr(i,j,l) ~= NaN)
+%        
+%            ZrC(i,j) = Zr(i,j,l);
+%
+%         end
+%
+%      end
+%   end
+%end
+%
+
 
 
 
@@ -89,11 +121,24 @@ figure('Name', 'surface')
 surface(X', Y', Z, 'EdgeColor', 'none'), view(3)
    
 figure('Name', 'mesh')
-mesh(X', Y', Z)
+mesh(X', Y', Z*6)
+hold on
+surface(X', Y', Zr(:,:,5), 'EdgeColor', 'none'), view(3)
+axis([-inf inf -inf inf -5 5])
+
 
 figure('Name', 'atomos')
-surface(X', Y', Zr, 'EdgeColor', 'none'), view(3)
- 
+hold on
+for l=1:length(X1)
+  
+   surface(X', Y', Zr(:,:,l), 'EdgeColor', 'none'), view(3)
 
+end
+axis([-inf inf -inf inf -5 5])
+ 
+figure('Name', 'atomos2')
+surface(X', Y', ZrC, 'EdgeColor', 'none'), view(3)
+axis([-inf inf -inf inf -5 5])
+ 
 
 
