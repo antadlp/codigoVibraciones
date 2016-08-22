@@ -69,7 +69,7 @@ fclose(fileIDY);
 
 
 
-r = 0.5;
+r = 0.3;
 Zr = zeros(length(x), length(y));
 
 for i=1:length(x)
@@ -139,13 +139,71 @@ for i=1:length(X1)
 end
 
 
+
+
 [Xs Ixs] = sort(X1);
 [Ys Iys] = sort(Y1);
+Xa = unique(Xs);
+Ya = unique(Ys);
+Za = zeros(length(Xa), length(Ya));
+for i=1:length(Xa)
+   for j=1:length(Ya)
 
-%
-%for i=1:length(X1)
-%   for j=1:length(Y1)
-%
-%      Zs(i,j) = 
-%
+      Za(i,j) = NaN;
+
+   end
+end
+
+
+for i=1:length(X1)
+   
+   xChecka = abs(Xa - X1(i));
+   [xxa Ia(i)] = min(xChecka);
+     
+   yChecka = abs(Ya - Y1(i));
+   [yya Ja(i)] = min(yChecka);
+
+   Za(Ia(i), Ja(i)) = Z1(i);
+
+end
+
+ZrCa = zeros(length(Xa), length(Ya));
+for i=1:length(Xa)
+   for j=1:length(Ya)
+
+      ZrCa(i,j) = NaN;
+
+   end
+end
+
+r=0.7;
+for l=1:length(X1)
+   for i=1:length(Xa)
+      for j=1:length(Ya)
+
+         ecC = (Xa(i) - Xa(Ia(l)))^2 + (Ya(j) - Ya(Ja(l)))^2;
+
+         if (ecC <= r^2)
+        
+            ZrCa(i,j)= sqrt(r^2 - ecC) + Za(Ia(l),Ja(l)); 
+
+         end
+
+      end
+   end
+end
+
+[XA YA] = meshgrid(Xa, Ya);
+figure('Name', 'atomos3')
+surface(XA', YA', ZrCa, 'EdgeColor', 'none'), view(3)
+axis([-inf inf -inf inf -5 5])
+
+figure('Name', 'mesh3')
+ZrCa = zeros(length(Xa), length(Ya));
+mesh(XA', YA', ZrCa);
+hold on
+surface(X', Y', ZrC, 'EdgeColor', 'none'), view(3)
+axis([-inf inf -inf inf -5 5])
+
+
 

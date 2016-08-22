@@ -4,8 +4,8 @@ V = peaks(X, Y);
 figure
 surf(X, Y, V)
 
-x = [-3 -1 -1 0 1 2];
-y = [-4 -1  2 1 2 3]; 
+x = [-3 -1 -0.5 0 1 2];
+y = [-4 -1  0 1 2 3]; 
 [X1 Y1] = meshgrid(x,y);
 V1 = peaks(X1, Y1);
 
