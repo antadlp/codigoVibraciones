@@ -110,8 +110,8 @@ end
 
 
 [X Y] = meshgrid(x, y);
-figure('Name', 'surface')
-surface(X', Y', Z, 'EdgeColor', 'none'), view(3)
+%figure('Name', 'surface')
+%surface(X', Y', Z, 'EdgeColor', 'none'), view(3)
    
 figure('Name', 'mesh')
 mesh(X', Y', Z*6)
@@ -138,10 +138,14 @@ for i=1:length(X1)
    fprintf('%i\t%f\n', i, Z(I(i),J(i)));
 end
 
-Vq = griddata(X1, Y1, Z1, x, y);
 
-[X, Y, Z] = meshgrid(x, y, Vq);
-figure('Name', 'surface3')
-surface(X', Y', Z, 'EdgeColor', 'none'), view(3)
+[Xs Ixs] = sort(X1);
+[Ys Iys] = sort(Y1);
 
+%
+%for i=1:length(X1)
+%   for j=1:length(Y1)
+%
+%      Zs(i,j) = 
+%
 
