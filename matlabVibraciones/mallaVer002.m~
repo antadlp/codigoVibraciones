@@ -103,6 +103,67 @@ for l=1:length(X1)
    end
 end
 
+xl = -2*pi:0.3:2*pi;
+yl = xl;
+
+[Xl Yl] = meshgrid(xl, yl);
+
+Zl = sin(Xl) + cos(Yl);
+
+figure
+%surf(Xl, Yl, Zl)
+surface(Xl, Yl, Zl, 'EdgeColor', 'none'), view(3)
+
+rZ = zeros(length(x), length(y));
+for i=1:length(x)
+   for j=length(y)
+      rZ(i, j) = NaN;
+   end
+end
+
+Rz = rotz(20);
+
+for i = 1:length(xl)
+   for j = 1:length(yl)
+
+      R = Rz*[xl(i); yl(j); Zl(i, j)];
+
+      rX(i,j) = R(1);
+      rY(i,j) = R(2);
+      rZ(i,j) = R(3);
+
+   end
+end
+
+rXmin = minValueMatrix(rX);
+rXmax= maxValueMatrix(rX);
+rYmin = minValueMatrix(rY);
+rYmax= maxValueMatrix(rY);
+
+rXX = rXmin:0.1:rXmax;
+rYY = rYmin:0.1:rYmax;
+
+rZZ = zeros(length(rXX), length(rYY));
+
+for i = 1:length(xl)
+   for j = 1:length(yl)
+
+      [XXMin Ixx] = min(abs(rXX - rX(i,j)));
+      [YYMin Iyy] = min(abs(rYY - rY(i,j)));
+
+      rZZ(Ixx, Iyy) = rZ(i, j);
+
+   end
+end
+
+
+
+
+
+
+
+      
+
 
 
 
@@ -112,7 +173,11 @@ end
 [X Y] = meshgrid(x, y);
 %figure('Name', 'surface')
 %surface(X', Y', Z, 'EdgeColor', 'none'), view(3)
-   
+[RX RY] = meshgrid(rXX, rYY);
+figure('Name', 'rota')
+%surf(RX', RY', rZZ);
+surface(RX', RY', rZZ, 'EdgeColor', 'none'), view(3)
+  
 figure('Name', 'mesh')
 mesh(X', Y', Z*6)
 hold on
