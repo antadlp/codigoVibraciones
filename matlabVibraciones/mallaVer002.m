@@ -114,9 +114,13 @@ end
 %%surf(Xl, Yl, Zl)
 %surface(Xl, Yl, Zl, 'EdgeColor', 'none'), view(3)
 %
-rZ = zeros(length(x), length(y));
-for i=1:length(x)
-   for j=length(y)
+xl = x;
+yl = y;
+Zl = ZrC;
+
+rZ = zeros(length(xl), length(yl));
+for i=1:length(xl)
+   for j=length(yl)
       rZ(i, j) = NaN;
    end
 end
@@ -127,6 +131,11 @@ for i = 1:length(xl)
    for j = 1:length(yl)
 
       R = Rz*[xl(i); yl(j); Zl(i, j)];
+
+      if (Zl(i,j) ~= NaN))
+
+         mIJ(i,j) = 
+
 
       rX(i,j) = R(1);
       rY(i,j) = R(2);
@@ -177,6 +186,7 @@ end
 figure('Name', 'rota')
 %surf(RX', RY', rZZ);
 surface(RX', RY', rZZ, 'EdgeColor', 'none'), view(3)
+axis([-inf inf -inf inf -5 5])
   
 figure('Name', 'mesh')
 mesh(X', Y', Z*6)
