@@ -176,3 +176,8 @@ Y0 = Y;
 
 [xX01 lineaX01] = makeAtomsLine(H11, H04);
 
+r = .3;
+ep = 20;
+%function lista = crossLine2dAtom(Atoms, xline, yline, radii, ep)
+lista01 = crossLine2dAtom(MA, xX01, lista01, r, ep);
+

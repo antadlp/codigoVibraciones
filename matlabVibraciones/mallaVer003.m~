@@ -152,8 +152,6 @@ yp = limitYAbj:01:limitYArr;
 [Xp Yp] = meshgrid(xp, yp);
 [Xl Yl] = meshgrid(x, y);
 [Zp N] = makePlano001(Xp, Yp, H15, normal');
-
-
 %Zd = distanciaPuntoPlano(P, N)
 
 figure('Name', 'mesh')
@@ -162,10 +160,6 @@ mesh(Xp, Yp, Zp)
 axis([-inf inf -inf inf -5 5])
 hold on
 surface(Xl', Yl', ZrC, 'EdgeColor', 'none'), view(3)
-
-
-
-
 
 
 figure('Name', 'xy')
@@ -177,6 +171,13 @@ plot(X', Y', 'o')
 axis([limitXIzq limitXDer limitYAbj limitYArr]);
 grid on
 
+X0 = X;
+Y0 = Y;
 
+[xX01 lineaX01] = makeAtomsLine(H11, H04);
 
+r = .3;
+ep = 20;
+%function lista = crossLine2dAtom(Atoms, xline, yline, radii, ep)
+lista01 = crossLine2dAtom(MA, xX01, lista01, r, ep);
 
