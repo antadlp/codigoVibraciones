@@ -1,4 +1,5 @@
 filename = 'zzout2.dat';
+%filename = 'frame-500-000.dat';
 XYZFile = importdata(filename);
 format short e
 
@@ -118,14 +119,17 @@ H01 = [MA(1, 1) MA(1, 2) MA(1, 3)];
 [xY02 lineY02 ] = makeAtomsLine(H15, H14);
 
 
-extraLimit = abs(H11(1) - H22(1));
+extraLimitA = abs(H11(1) - H22(1));
+extraLimitB = abs(H04(1) - H15(1));
+
+extraLimit = max([extraLimitA extraLimitB]);
 extraLimit2 = extraLimit/2;
 
-limitXIzq = H11(1) - extraLimit;
-limitXDer = H22(1) + extraLimit;
+limitXIzq = xmin - extraLimit2;
+limitXDer = xmax + extraLimit2;
 
-limitYArr = H04(2) + extraLimit2;
-limitYAbj= H15(2) - extraLimit2;
+limitYArr = ymax + extraLimit2;
+limitYAbj = ymin - extraLimit2;
 
 P = H01;
 Q = H22;
@@ -144,7 +148,7 @@ yp = limitYAbj:01:limitYArr;
 
 %Zd = distanciaPuntoPlano(P, N)
 
-figure(2)
+figure('Name', 'mesh')
 %surface(Xp, Yp, Zp, 'EdgeColor', 'none'), view(3)
 mesh(Xp, Yp, Zp)
 axis([-inf inf -inf inf -5 5])
@@ -156,7 +160,7 @@ surface(Xl', Yl', ZrC, 'EdgeColor', 'none'), view(3)
 
 
 
-figure(1)
+figure('Name', 'xy')
 plot(xY01, lineY01)
 hold on
 plot(xY02, lineY02)
