@@ -1,0 +1,12 @@
+function y = crossLine2dAtom(Atoms, xline, yline, radii, ep)
+
+dx = abs(radii/ep);
+xmin = min(xline);
+xmax = max(xline);
+
+x = xmin:dx:xmax;
+m = (yline(length(yline)) - yline(1))/(xline(length(xline)) - xline(1));
+
+
+
+
