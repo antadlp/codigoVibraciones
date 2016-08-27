@@ -1,5 +1,5 @@
-filename = 'zzout2.dat';
-%filename = 'frame-500-000.dat';
+%filename = 'zzout2.dat';
+filename = 'frame-500-000.dat';
 XYZFile = importdata(filename);
 format short e
 
@@ -108,12 +108,13 @@ end
 
 
 H11 = [MA(11, 1) MA(11, 2) MA(11, 3)];
-H07 = [MA(7, 1) MA(7, 2)];
+H07 = [MA(7, 1) MA(7, 2) MA(7, 3)];
 H22 = [MA(22, 1) MA(22, 2) MA(22, 3)];
-H04 = [MA(4, 1) MA(4, 2)];
+H04 = [MA(4, 1) MA(4, 2) MA(4, 3)];
 H15 = [MA(15, 1) MA(15, 2) MA(15, 3)];
-H14 = [MA(14, 1) MA(14, 2)];
+H14 = [MA(14, 1) MA(14, 2) MA(14, 3)];
 H01 = [MA(1, 1) MA(1, 2) MA(1, 3)];
+H05 = [MA(5, 1) MA(5, 2) MA(5, 3)];
 
 [xY01 lineY01 ] = makeAtomsLine(H11, H07);
 [xY02 lineY02 ] = makeAtomsLine(H15, H14);
@@ -131,9 +132,16 @@ limitXDer = xmax + extraLimit2;
 limitYArr = ymax + extraLimit2;
 limitYAbj = ymin - extraLimit2;
 
-P = H01;
-Q = H22;
-R = H11;
+%P = H01;
+%Q = H22;
+%R = H11;
+%PQ = P - Q;
+%PR = P - R;
+%normal = cross(PQ, PR);
+
+P = H15;
+Q = H14;
+R = H04;
 PQ = P - Q;
 PR = P - R;
 normal = cross(PQ, PR);
@@ -144,8 +152,6 @@ yp = limitYAbj:01:limitYArr;
 [Xp Yp] = meshgrid(xp, yp);
 [Xl Yl] = meshgrid(x, y);
 [Zp N] = makePlano001(Xp, Yp, H15, normal');
-
-
 %Zd = distanciaPuntoPlano(P, N)
 
 figure('Name', 'mesh')
@@ -154,10 +160,6 @@ mesh(Xp, Yp, Zp)
 axis([-inf inf -inf inf -5 5])
 hold on
 surface(Xl', Yl', ZrC, 'EdgeColor', 'none'), view(3)
-
-
-
-
 
 
 figure('Name', 'xy')
@@ -169,6 +171,8 @@ plot(X', Y', 'o')
 axis([limitXIzq limitXDer limitYAbj limitYArr]);
 grid on
 
+X0 = X;
+Y0 = Y;
 
-
+[xX01 lineaX01] = makeAtomsLine(H11, H04);
 
