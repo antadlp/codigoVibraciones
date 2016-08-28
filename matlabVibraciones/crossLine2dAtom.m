@@ -1,4 +1,7 @@
-function lista = crossLine2dAtom(Atoms, xline, yline, radii, ep)
+function lista = crossLine2dAtom(Atoms, xline, yline, radii, ep, orden)
+
+%orden 1 = horizontal 
+%orden 2 = vertical 
 
 dx = abs(radii/ep);
 xmin = min(xline);
@@ -11,10 +14,11 @@ y = m*(x - xline(1)) + yline(1);
 
 %y = m*(x - P1(1)) + P1(2); 
 
-A = Atmos;
-sz = size(Atmos);
+A = Atoms;
+sz = size(Atoms);
 r = radii;
 
+l = 1;
 for i=1:sz(1)
    for j=1:length(x)
 
@@ -26,11 +30,33 @@ for i=1:sz(1)
       if ( rp <= radii^2)
 
          lista(l) = i;
+         l = l + 1;
 
       end
 
    end
 end
+
+lista = unique(lista);
+
+if (orden == 1)
+   
+   B = A(lista, 1);
+
+elseif (orden == 2)
+
+   B = A(lista, 2);
+
+end
+
+[C D] = sort(B);
+
+F = lista(D);
+
+lista = F;
+
+
+
 
 
       

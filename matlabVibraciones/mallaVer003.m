@@ -1,5 +1,5 @@
-%filename = 'zzout2.dat';
-filename = 'frame-500-000.dat';
+filename = 'zzout2.dat';
+%filename = 'frame-500-000.dat';
 XYZFile = importdata(filename);
 format short e
 
@@ -171,13 +171,11 @@ plot(X', Y', 'o')
 axis([limitXIzq limitXDer limitYAbj limitYArr]);
 grid on
 
-X0 = X;
-Y0 = Y;
 
-[xX01 lineaX01] = makeAtomsLine(H11, H04);
 
 r = .3;
 ep = 20;
-%function lista = crossLine2dAtom(Atoms, xline, yline, radii, ep)
-lista01 = crossLine2dAtom(MA, xX01, lista01, r, ep);
+
+[xX01 lineaX01] = makeAtomsLine(H11, H07);
+listaHor01= crossLine2dAtom(MA, xX01, lineaX01, r, ep, 1);
 
