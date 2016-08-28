@@ -115,6 +115,10 @@ H15 = [MA(15, 1) MA(15, 2) MA(15, 3)];
 H14 = [MA(14, 1) MA(14, 2) MA(14, 3)];
 H01 = [MA(1, 1) MA(1, 2) MA(1, 3)];
 H05 = [MA(5, 1) MA(5, 2) MA(5, 3)];
+H69 = [MA(69, 1) MA(69, 2) MA(69, 3)];
+H47 = [MA(47, 1) MA(47, 2) MA(47, 3)];
+H91 = [MA(91, 1) MA(91, 2) MA(91, 3)];
+H48 = [MA(48, 1) MA(48, 2) MA(48, 3)];
 
 [xY01 lineY01 ] = makeAtomsLine(H11, H07);
 [xY02 lineY02 ] = makeAtomsLine(H15, H14);
@@ -171,13 +175,18 @@ plot(X', Y', 'o')
 axis([limitXIzq limitXDer limitYAbj limitYArr]);
 grid on
 
-X0 = X;
-Y0 = Y;
 
-[xX01 lineaX01] = makeAtomsLine(H11, H07);
 
 r = .3;
 ep = 20;
-%function lista = crossLine2dAtom(Atoms, xline, yline, radii, ep)
+
+[xX01 lineaX01] = makeAtomsLine(H11, H07);
 listaHor01= crossLine2dAtom(MA, xX01, lineaX01, r, ep, 1);
+
+[xX02 lineaX02] = makeAtomsLine(H69, H47);
+listaHor02 = crossLine2dAtom(MA, xX02, lineaX02, r, ep, 1);
+
+[xX03 lineaX03] = makeAtomsLine(H91, H48);
+listaHor03 = crossLine2dAtom(MA, xX03, lineaX03, r, ep, 1);
+
 
