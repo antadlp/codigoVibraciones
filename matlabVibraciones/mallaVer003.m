@@ -179,29 +179,23 @@ for i=1:length(arrHor01)
 
 end
 figure('Name', 'arrAtoms')
-plot(nMA(:,2), nMA(:,3), 'ro')
-hold on
 [xX01t lineaX01t] = makeAtomsLine(H11, H07);
 plot(xX01t, lineaX01t)
+hold on
 axis([limitXIzq limitXDer limitYAbj limitYArr]);
 grid on
-
 
 [xX02 lineaX02] = makeAtomsLine(H69, H47);
 listaHor02 = crossLine2dAtom(MA, xX02, lineaX02, r, ep, 1);
 arrHor02 = arrangeAtomsLine(xX02, lineaX02, MA, listaHor02, 0.001);
 for i=1:length(arrHor02) 
 
-   nMA(i, :) = [listaHor01(i) arrHor01(i, 1) arrHor01(i, 2)];
+   nMA(i + length(arrHor01), :) = [listaHor02(i) arrHor02(i, 1) arrHor02(i, 2)];
 
 end
-figure('Name', 'arrAtoms')
 plot(nMA(:,2), nMA(:,3), 'ro')
-hold on
-[xX01t lineaX01t] = makeAtomsLine(H11, H07);
-plot(xX01t, lineaX01t)
-axis([limitXIzq limitXDer limitYAbj limitYArr]);
-grid on
+[xX02t lineaX02t] = makeAtomsLine(H69, H47);
+plot(xX02t, lineaX02t)
 
 
 
