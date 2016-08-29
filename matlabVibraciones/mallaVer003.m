@@ -166,27 +166,60 @@ hold on
 surface(Xl', Yl', ZrC, 'EdgeColor', 'none'), view(3)
 
 
+
+
+r = .3;
+ep = 20;
+[xX01 lineaX01] = makeAtomsLine(H11, H07);
+listaHor01= crossLine2dAtom(MA, xX01, lineaX01, r, ep, 1);
+arrHor01 = arrangeAtomsLine(xX01, lineaX01, MA, listaHor01, 0.001);
+for i=1:length(arrHor01)
+
+   nMA(i, :) = [listaHor01(i) arrHor01(i, 1) arrHor01(i, 2)];
+
+end
+figure('Name', 'arrAtoms')
+plot(nMA(:,2), nMA(:,3), 'ro')
+hold on
+[xX01t lineaX01t] = makeAtomsLine(H11, H07);
+plot(xX01t, lineaX01t)
+axis([limitXIzq limitXDer limitYAbj limitYArr]);
+grid on
+
+
+[xX02 lineaX02] = makeAtomsLine(H69, H47);
+listaHor02 = crossLine2dAtom(MA, xX02, lineaX02, r, ep, 1);
+arrHor02 = arrangeAtomsLine(xX02, lineaX02, MA, listaHor02, 0.001);
+for i=1:length(arrHor02) 
+
+   nMA(i, :) = [listaHor01(i) arrHor01(i, 1) arrHor01(i, 2)];
+
+end
+figure('Name', 'arrAtoms')
+plot(nMA(:,2), nMA(:,3), 'ro')
+hold on
+[xX01t lineaX01t] = makeAtomsLine(H11, H07);
+plot(xX01t, lineaX01t)
+axis([limitXIzq limitXDer limitYAbj limitYArr]);
+grid on
+
+
+
+
+
+
+[xX03 lineaX03] = makeAtomsLine(H91, H48);
+listaHor03 = crossLine2dAtom(MA, xX03, lineaX03, r, ep, 1);
+
+
 figure('Name', 'xy')
 plot(xY01, lineY01)
 hold on
 plot(xY02, lineY02)
 %plot([H11(1)], [H11(2)], 'o')
 plot(X', Y', 'o')
+plot(nMA(:,2), nMA(:,3), 'ro')
 axis([limitXIzq limitXDer limitYAbj limitYArr]);
 grid on
-
-
-
-r = .3;
-ep = 20;
-
-[xX01 lineaX01] = makeAtomsLine(H11, H07);
-listaHor01= crossLine2dAtom(MA, xX01, lineaX01, r, ep, 1);
-
-[xX02 lineaX02] = makeAtomsLine(H69, H47);
-listaHor02 = crossLine2dAtom(MA, xX02, lineaX02, r, ep, 1);
-
-[xX03 lineaX03] = makeAtomsLine(H91, H48);
-listaHor03 = crossLine2dAtom(MA, xX03, lineaX03, r, ep, 1);
 
 
