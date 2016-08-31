@@ -12,7 +12,7 @@ end
 ymin = min(d);
 ymax = max(d);
 
-yArr = (ymax - ymin)/2;
+yArr = ymin + (ymax - ymin)/2;
 
 for i=1:length(B)
 

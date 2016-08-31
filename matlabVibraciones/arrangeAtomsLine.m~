@@ -16,7 +16,7 @@ yArr = (ymax - ymin)/2;
 
 for i=1:length(B)
 
-   arr(i) = [A(B(i), 1) yArr];
+   arr(i, :) = [A(B(i), 1) yArr];
 
 end
 
