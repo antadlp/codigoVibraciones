@@ -19,7 +19,7 @@ distancia = abs(A*P(1) + B*P(2) + C)/sqrt(A^2 + B^2);
 
 yP = m*P(1) + b;
 
-if (yp > P(2))
+if (yP > P(2))
 
    distancia = -distancia;
 

@@ -1,4 +1,4 @@
-function distancia = distanciaPuntoLinea001(xlinea, ylinea, P, dx)
+function distancia = distanciaPuntoLinea001(xlinea, ylinea, P)
 
 
 x = xlinea;
