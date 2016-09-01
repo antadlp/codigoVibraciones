@@ -1,4 +1,4 @@
-function arr = arrangeAtomsLine(xlinea, ylinea, A, B, dx)
+function arr = arrangeAtomsLineY(xlinea, ylinea, A, B, C)
 %function distancia = distanciaPuntoLinea001(xlinea, ylinea, P, dx)
 
 
@@ -12,15 +12,35 @@ end
 xmin = min(d);
 xmax = max(d);
 
-xpMin = min(A(B, 2));
+xpMin = min(A(B, 1));
 
 xArr = xpMin + (xmax - xmin)/2
 
 for i=1:length(B)
 
-   arr(i, :) = [xArr A(B(i), 2)];
+   [ii jj] = ismember(B(i), C);
+
+   if (ii == 1)
+
+       arr(i, :) = [xArr C(jj, 3)];
+
+    elseif (ii == 0)
+
+       arr(i, :) = [xArr A(B(i), 2)];
+
+    end
+
 
 end
+
+
+%para alinearlos horizontal
+%for i=1:length(B)
+%
+%   arr(i, :) = [A(B(i), 1) yArr];
+%
+%end
+%
 
 
 
