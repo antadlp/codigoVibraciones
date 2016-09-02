@@ -5,7 +5,7 @@ function arr = arrangeAtomsLineY(xlinea, ylinea, A, B, C)
 for i=1:length(B)
 
    P = [A(B(i), 1) A(B(i), 2)]
-   d(i) = distanciaPuntoLinea001(xlinea, ylinea, P)
+   d(i) = distanciaPuntoLinea002(xlinea, ylinea, P)
 
 end
 
