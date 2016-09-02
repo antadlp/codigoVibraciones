@@ -401,7 +401,7 @@ for i=1:length(arrHor13)
 
 end
 offset = length(nMA);
-plot(nMA(:,2), nMA(:,3), 'ro')
+%plot(nMA(:,2), nMA(:,3), 'ro')
 A1 = [arrHor13(1, 1) arrHor13(1, 2)];
 A2 = [arrHor13(length(arrHor13), 1) arrHor13(length(arrHor13), 2)];
 [xX13t lineaX13t] = makeAtomsLine(A1, A2);
@@ -409,20 +409,22 @@ plot(xX13t, lineaX13t)
 
 
 
-offset = 0;
-[xY01 lineaY01] = makeAtomsLineY(C122, C124);
+r = 0.5;
+[xY01 lineaY01] = makeAtomsLineY(C124, C122);
 listaVert01 = crossLine2dAtom(MA, xY01, lineaY01, r, ep, 2);
 arrVert01 = arrangeAtomsLineY(xY01, lineaY01, MA, listaVert01, nMA);
 for i=1:length(arrVert01) 
 
-   nMA(:,i + offset) = [listaVert01(i) arrVert01(i, 1) arrVert01(i, 2)];
+   [ii jj] = ismember(listaVert01(i), nMA);
+
+   nMA(jj, :) = [listaVert01(i) arrVert01(i, 1) arrVert01(i, 2)];
 
 end
 offset = length(nMA);
 plot(nMA(:,2), nMA(:,3), 'ro')
 A1 = [arrVert01(1, 1) arrVert01(1, 2)];
 A2 = [arrVert01(length(arrVert01), 1) arrVert01(length(arrVert01), 2)];
-[xY01t lineaY01t] = makeAtomsLine(A1, A2);
+[xY01t lineaY01t] = makeAtomsLineY(A1, A2);
 plot(xY01t, lineaY01t)
 
 
@@ -432,9 +434,9 @@ plot(xY01t, lineaY01t)
 
 
 figure('Name', 'xy')
-plot(xY01, lineY01)
+plot(xX01, lineX01)
 hold on
-plot(xY02, lineY02)
+plot(xX02, lineX02)
 %plot([H11(1)], [H11(2)], 'o')
 plot(X', Y', 'o')
 plot(nMA(:,2), nMA(:,3), 'ro')
