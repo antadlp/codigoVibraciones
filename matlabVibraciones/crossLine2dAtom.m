@@ -11,10 +11,20 @@ ymin = min(yline);
 ymax = max(yline);
 
 
-x = xmin:dx:xmax;
-m = (yline(length(yline)) - yline(1))/(xline(length(xline)) - xline(1));
+if (orden == 1)
 
-y = m*(x - xline(1)) + yline(1);
+   x = xmin:dx:xmax;
+   m = (yline(length(yline)) - yline(1))/(xline(length(xline)) - xline(1));
+   y = m*(x - xline(1)) + yline(1);
+
+elseif (orden == 2)
+
+   y = ymin:dx:ymax;
+   m = (xline(length(xline)) - xline(1))/(yline(length(yline)) - yline(1));
+   x = m*(y - yline(1)) + xline(1);
+
+end
+
 
 %y = m*(x - P1(1)) + P1(2); 
 
