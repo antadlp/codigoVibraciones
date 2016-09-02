@@ -1,4 +1,7 @@
-function lista = crossLine2dAtom(Atoms, xline, yline, radii, ep)
+function lista = crossLine2dAtom(Atoms, xline, yline, radii, ep, orden)
+
+%orden 1 = horizontal 
+%orden 2 = vertical 
 
 dx = abs(radii/ep);
 xmin = min(xline);
@@ -36,7 +39,16 @@ end
 
 lista = unique(lista);
 
-B = A(lista, 1);
+if (orden == 1)
+   
+   B = A(lista, 1);
+
+elseif (orden == 2)
+
+   B = A(lista, 2);
+
+end
+
 [C D] = sort(B);
 
 F = lista(D);

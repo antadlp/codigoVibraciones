@@ -4,8 +4,12 @@ function lista = crossLine2dAtom(Atoms, xline, yline, radii, ep, orden)
 %orden 2 = vertical 
 
 dx = abs(radii/ep);
+
 xmin = min(xline);
 xmax = max(xline);
+ymin = min(yline);
+ymax = max(yline);
+
 
 x = xmin:dx:xmax;
 m = (yline(length(yline)) - yline(1))/(xline(length(xline)) - xline(1));
