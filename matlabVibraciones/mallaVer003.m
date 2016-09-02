@@ -197,6 +197,7 @@ offset = 0;
 [xX01 lineaX01] = makeAtomsLine(H11, H07);
 listaHor01= crossLine2dAtom(MA, xX01, lineaX01, r, ep, 1);
 arrHor01 = arrangeAtomsLine(xX01, lineaX01, MA, listaHor01, 0.001);
+horizontales( :, :, 1) =  [arrHor01(:,1) arrHor01(:, 2) MA(listaHor01, :)];
 for i=1:length(arrHor01)
 
    nMA(i, :) = [listaHor01(i) arrHor01(i, 1) arrHor01(i, 2)];
@@ -216,6 +217,7 @@ grid on
 [xX02 lineaX02] = makeAtomsLine(H69, H47);
 listaHor02 = crossLine2dAtom(MA, xX02, lineaX02, r, ep, 1);
 arrHor02 = arrangeAtomsLine(xX02, lineaX02, MA, listaHor02, 0.001);
+horizontales( :, :, 2) =  [arrHor02(:,1) arrHor02(:, 2) MA(listaHor02, :)];
 for i=1:length(arrHor02) 
 
    nMA(i + offset, :) = [listaHor02(i) arrHor02(i, 1) arrHor02(i, 2)];
@@ -233,6 +235,7 @@ plot(xX02t, lineaX02t)
 [xX03 lineaX03] = makeAtomsLine(H91, H48);
 listaHor03 = crossLine2dAtom(MA, xX03, lineaX03, r, ep, 1);
 arrHor03 = arrangeAtomsLine(xX03, lineaX03, MA, listaHor03, 0.001);
+horizontales( :, :, 3) =  [arrHor03(:,1) arrHor03(:, 2) MA(listaHor03, :)];
 for i=1:length(arrHor03) 
 
    nMA(i + offset, :) = [listaHor03(i) arrHor03(i, 1) arrHor03(i, 2)];
@@ -249,6 +252,7 @@ plot(xX03t, lineaX03t)
 [xX04 lineaX04] = makeAtomsLine(C88, C42);
 listaHor04 = crossLine2dAtom(MA, xX04, lineaX04, r, ep, 1);
 arrHor04 = arrangeAtomsLine(xX04, lineaX04, MA, listaHor04, 0.001);
+horizontales( :, :, 4) =  [arrHor04(:,1) arrHor04(:, 2) MA(listaHor04, :)];
 for i=1:length(arrHor04) 
 
    nMA(i + offset, :) = [listaHor04(i) arrHor04(i, 1) arrHor04(i, 2)];
@@ -264,6 +268,7 @@ plot(xX04t, lineaX04t)
 [xX05 lineaX05] = makeAtomsLine(C111, C43);
 listaHor05 = crossLine2dAtom(MA, xX05, lineaX05, r, ep, 1);
 arrHor05 = arrangeAtomsLine(xX05, lineaX05, MA, listaHor05, 0.001);
+horizontales( :, :, 5) =  [arrHor05(:,1) arrHor05(:, 2) MA(listaHor05, :)];
 for i=1:length(arrHor05) 
 
    nMA(i + offset, :) = [listaHor05(i) arrHor05(i, 1) arrHor05(i, 2)];
@@ -280,6 +285,7 @@ plot(xX05t, lineaX05t)
 [xX06 lineaX06] = makeAtomsLine(C108, C44);
 listaHor06 = crossLine2dAtom(MA, xX06, lineaX06, r, ep, 1);
 arrHor06 = arrangeAtomsLine(xX06, lineaX06, MA, listaHor06, 0.001);
+horizontales( :, :, 6) =  [arrHor06(:,1) arrHor06(:, 2) MA(listaHor06, :)];
 for i=1:length(arrHor06) 
 
    nMA(i + offset, :) = [listaHor06(i) arrHor06(i, 1) arrHor06(i, 2)];
@@ -296,6 +302,7 @@ plot(xX06t, lineaX06t)
 [xX07 lineaX07] = makeAtomsLine(C124, C45);
 listaHor07 = crossLine2dAtom(MA, xX07, lineaX07, r, ep, 1);
 arrHor07 = arrangeAtomsLine(xX07, lineaX07, MA, listaHor07, 0.001);
+horizontales( :, :, 7) =  [arrHor07(:,1) arrHor07(:, 2) MA(listaHor07, :)];
 for i=1:length(arrHor07) 
 
    nMA(i + offset, :) = [listaHor07(i) arrHor07(i, 1) arrHor07(i, 2)];
@@ -312,6 +319,7 @@ plot(xX07t, lineaX07t)
 [xX08 lineaX08] = makeAtomsLine(C122, C46);
 listaHor08 = crossLine2dAtom(MA, xX08, lineaX08, r, ep, 1);
 arrHor08 = arrangeAtomsLine(xX08, lineaX08, MA, listaHor08, 0.001);
+horizontales( :, :, 8) =  [arrHor08(:,1) arrHor08(:, 2) MA(listaHor08, :)];
 for i=1:length(arrHor08) 
 
    nMA(i + offset, :) = [listaHor08(i) arrHor08(i, 1) arrHor08(i, 2)];
@@ -329,6 +337,7 @@ plot(xX08t, lineaX08t)
 [xX09 lineaX09] = makeAtomsLine(C120, C40);
 listaHor09 = crossLine2dAtom(MA, xX09, lineaX09, r, ep, 1);
 arrHor09 = arrangeAtomsLine(xX09, lineaX09, MA, listaHor09, 0.001);
+horizontales( :, :, 9) =  [arrHor09(:,1) arrHor09(:, 2) MA(listaHor09, :)];
 for i=1:length(arrHor09) 
 
    nMA(i + offset, :) = [listaHor09(i) arrHor09(i, 1) arrHor09(i, 2)];
@@ -346,6 +355,7 @@ plot(xX09t, lineaX09t)
 [xX10 lineaX10] = makeAtomsLine(C117, C41);
 listaHor10 = crossLine2dAtom(MA, xX10, lineaX10, r, ep, 1);
 arrHor10 = arrangeAtomsLine(xX10, lineaX10, MA, listaHor10, 0.001);
+horizontales( :, :, 10) =  [arrHor10(:,1) arrHor10(:, 2) MA(listaHor10, :)];
 for i=1:length(arrHor10) 
 
    nMA(i + offset, :) = [listaHor10(i) arrHor10(i, 1) arrHor10(i, 2)];
@@ -362,6 +372,7 @@ plot(xX10t, lineaX10t)
 [xX11 lineaX11] = makeAtomsLine(C114, C34);
 listaHor11 = crossLine2dAtom(MA, xX11, lineaX11, r, ep, 1);
 arrHor11 = arrangeAtomsLine(xX11, lineaX11, MA, listaHor11, 0.001);
+horizontales( :, :, 11) =  [arrHor11(:,1) arrHor11(:, 2) MA(listaHor11, :)];
 for i=1:length(arrHor11) 
 
    nMA(i + offset, :) = [listaHor11(i) arrHor11(i, 1) arrHor11(i, 2)];
@@ -378,6 +389,7 @@ plot(xX11t, lineaX11t)
 [xX12 lineaX12] = makeAtomsLine(C134, C35);
 listaHor12 = crossLine2dAtom(MA, xX12, lineaX12, r, ep, 1);
 arrHor12 = arrangeAtomsLine(xX12, lineaX12, MA, listaHor12, 0.001);
+horizontales( :, :, 12) =  [arrHor12(:,1) arrHor12(:, 2) MA(listaHor12, :)];
 for i=1:length(arrHor12) 
 
    nMA(i + offset, :) = [listaHor12(i) arrHor12(i, 1) arrHor12(i, 2)];
@@ -395,6 +407,7 @@ plot(xX12t, lineaX12t)
 [xX13 lineaX13] = makeAtomsLine(C132, C31);
 listaHor13 = crossLine2dAtom(MA, xX13, lineaX13, r, ep, 1);
 arrHor13 = arrangeAtomsLine(xX13, lineaX13, MA, listaHor13, 0.001);
+horizontales( :, :, 13) =  [arrHor13(:,1) arrHor13(:, 2) MA(listaHor13, :)];
 for i=1:length(arrHor13) 
 
    nMA(i + offset, :) = [listaHor13(i) arrHor13(i, 1) arrHor13(i, 2)];
@@ -412,6 +425,7 @@ plot(xX13t, lineaX13t)
 [xY01 lineaY01] = makeAtomsLineY(C124, C122);
 listaVert01 = crossLine2dAtom(MA, xY01, lineaY01, r, ep, 2);
 arrVert01 = arrangeAtomsLineY(xY01, lineaY01, MA, listaVert01, nMA);
+verticales( :, :, 1) =  [arrVert01(:,1) arrVert01(:, 2) MA(listaVert01, :)];
 for i=1:length(arrVert01) 
 
    [ii jj] = ismember(listaVert01(i), nMA);
@@ -429,6 +443,7 @@ plot(xY01t, lineaY01t)
 [xY02 lineaY02] = makeAtomsLineY(C111, C117);
 listaVert02 = crossLine2dAtom(MA, xY02, lineaY02, r, ep, 2);
 arrVert02 = arrangeAtomsLineY(xY02, lineaY02, MA, listaVert02, nMA);
+verticales( :, :, 2) =  [arrVert02(:,1) arrVert02(:, 2) MA(listaVert02, :)];
 for i=1:length(arrVert02) 
 
    [ii jj] = ismember(listaVert02(i), nMA);
