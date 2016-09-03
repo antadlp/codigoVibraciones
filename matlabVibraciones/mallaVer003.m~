@@ -232,7 +232,7 @@ for i=1:length(listaHor02)
    arrHor02(i,1), arrHor02(i, 2), MA(i, 3));
 end
 fclose(fileID);
-horizontalesL(1, 2) = arrHor02(1,2);
+horizontalesL(2, 1) = arrHor02(1,2);
 for i=1:length(arrHor02) 
 
    nMA(i + offset, :) = [listaHor02(i) arrHor02(i, 1) arrHor02(i, 2)];
@@ -258,7 +258,7 @@ for i=1:length(listaHor03)
    arrHor03(i,1), arrHor03(i, 2), MA(i, 3));
 end
 fclose(fileID);
-horizontalesL(1, 2) = arrHor03(1,2);
+horizontalesL(3, 1) = arrHor03(1,2);
 
 for i=1:length(arrHor03) 
 
@@ -276,7 +276,16 @@ plot(xX03t, lineaX03t)
 [xX04 lineaX04] = makeAtomsLine(C88, C42);
 listaHor04 = crossLine2dAtom(MA, xX04, lineaX04, r, ep, 1);
 arrHor04 = arrangeAtomsLine(xX04, lineaX04, MA, listaHor04, 0.001);
-horizontales( :, :, 4) =  [arrHor04(:,1) arrHor04(:, 2) MA(listaHor04, 3)];
+
+namefile = strcat('horizontales', '04');
+fileID = fopen(namefile, 'w');
+for i=1:length(listaHor04)
+   fprintf(fileID, '%f\t %f\t %f\t\n', ...
+   arrHor04(i,1), arrHor04(i, 2), MA(i, 3));
+end
+fclose(fileID);
+horizontalesL(4, 1) = arrHor04(1,2);
+
 for i=1:length(arrHor04) 
 
    nMA(i + offset, :) = [listaHor04(i) arrHor04(i, 1) arrHor04(i, 2)];
