@@ -4,17 +4,17 @@ function arr = arrangeAtomsLineY(xlinea, ylinea, A, B, C)
 
 for i=1:length(B)
 
-   P = [A(B(i), 1) A(B(i), 2)]
-   d(i) = distanciaPuntoLinea002(xlinea, ylinea, P)
+   P = [A(B(i), 1) A(B(i), 2)];
+   d(i) = distanciaPuntoLinea002(xlinea, ylinea, P);
 
 end
 
-xmin = min(d)
-xmax = max(d)
+xmin = min(d);
+xmax = max(d);
 
-xpMin = min(A(B, 1))
+xpMin = min(A(B, 1));
 
-xArr = xpMin + (xmax - xmin)/2
+xArr = xpMin + (xmax - xmin)/2;
 
 for i=1:length(B)
 
