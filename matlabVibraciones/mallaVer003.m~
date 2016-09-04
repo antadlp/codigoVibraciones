@@ -1136,7 +1136,7 @@ for i=1:length(arrVert18)
    nMA(jj, :) = [listaVert18(i) arrVert18(i, 1) arrVert18(i, 2)];
 
 end
-plot(nMA(:,2), nMA(:,3), 'ro')
+%plot(nMA(:,2), nMA(:,3), 'ro')
 A1 = [arrVert18(1, 1) arrVert18(1, 2)];
 A2 = [arrVert18(length(arrVert18), 1) arrVert18(length(arrVert18), 2)];
 [xY18t lineaY18t] = makeAtomsLineY(A1, A2);
