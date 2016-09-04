@@ -145,6 +145,20 @@ C66 = [MA(66, 1) MA(66, 2) MA(66, 3)];
 C129 = [MA(129, 1) MA(129, 2) MA(129, 3)];
 C54 = [MA(54, 1) MA(54, 2) MA(54, 3)];
 C128 = [MA(128, 1) MA(128, 2) MA(128, 3)];
+C126 = [MA(126, 1) MA(126, 2) MA(126, 3)];
+C52 = [MA(52, 1) MA(52, 2) MA(52, 3)];
+C141 = [MA(141, 1) MA(141, 2) MA(141, 3)];
+C125 = [MA(125, 1) MA(125, 2) MA(125, 3)];
+C136 = [MA(136, 1) MA(136, 2) MA(136, 3)];
+C115 = [MA(115, 1) MA(115, 2) MA(115, 3)];
+C140 = [MA(140, 1) MA(140, 2) MA(140, 3)];
+C112 = [MA(112, 1) MA(112, 2) MA(112, 3)];
+C94 = [MA(94, 1) MA(94, 2) MA(94, 3)];
+C137 = [MA(137, 1) MA(137, 2) MA(137, 3)];
+C139 = [MA(139, 1) MA(139, 2) MA(139, 3)];
+C92 = [MA(92, 1) MA(92, 2) MA(92, 3)];
+C138 = [MA(138, 1) MA(138, 2) MA(138, 3)];
+C70 = [MA(70, 1) MA(70, 2) MA(70, 3)];
 
 
 [xY01 lineY01 ] = makeAtomsLine(H11, H07);
@@ -714,7 +728,7 @@ plot(xY05t, lineaY05t)
 
 
 
-[xY06 lineaY06] = makeAtomsLineY(C66, C129);
+[xY06 lineaY06] = makeAtomsLineY(C54, C128);
 listaVert06 = crossLine2dAtom(MA, xY06, lineaY06, r, ep, 2);
 arrVert06 = arrangeAtomsLineY(xY06, lineaY06, MA, listaVert06, nMA);
 
@@ -726,7 +740,7 @@ for i=1:length(listaVert06)
 end
 fprintf(fileID, '\n');
 fclose(fileID);
-verticalesL(5, 1) = arrVert06(1,2);
+verticalesL(6, 1) = arrVert06(1,2);
 
 for i=1:length(arrVert06) 
 
@@ -735,7 +749,7 @@ for i=1:length(arrVert06)
    nMA(jj, :) = [listaVert06(i) arrVert06(i, 1) arrVert06(i, 2)];
 
 end
-plot(nMA(:,2), nMA(:,3), 'ro')
+%plot(nMA(:,2), nMA(:,3), 'ro')
 A1 = [arrVert06(1, 1) arrVert06(1, 2)];
 A2 = [arrVert06(length(arrVert06), 1) arrVert06(length(arrVert06), 2)];
 [xY06t lineaY06t] = makeAtomsLineY(A1, A2);
@@ -743,11 +757,205 @@ plot(xY06t, lineaY06t)
 
 
 
+[xY07 lineaY07] = makeAtomsLineY(C52, C126);
+listaVert07 = crossLine2dAtom(MA, xY07, lineaY07, r, ep, 2);
+arrVert07 = arrangeAtomsLineY(xY07, lineaY07, MA, listaVert07, nMA);
+
+namefile = strcat('verticales', '07');
+fileID = fopen(namefile, 'w');
+for i=1:length(listaVert07)
+   fprintf(fileID, '%f\t %f\t %f\t\n', ...
+   arrVert07(i,1), arrVert07(i, 2), MA(listaVert07(i), 3));
+end
+fprintf(fileID, '\n');
+fclose(fileID);
+verticalesL(7, 1) = arrVert07(1,2);
+
+for i=1:length(arrVert07) 
+
+   [ii jj] = ismember(listaVert07(i), nMA);
+
+   nMA(jj, :) = [listaVert07(i) arrVert07(i, 1) arrVert07(i, 2)];
+
+end
+%plot(nMA(:,2), nMA(:,3), 'ro')
+A1 = [arrVert07(1, 1) arrVert07(1, 2)];
+A2 = [arrVert07(length(arrVert07), 1) arrVert07(length(arrVert07), 2)];
+[xY07t lineaY07t] = makeAtomsLineY(A1, A2);
+plot(xY07t, lineaY07t)
 
 
 
 
 
+[xY08 lineaY08] = makeAtomsLineY(C141, C125);
+listaVert08 = crossLine2dAtom(MA, xY08, lineaY08, r, ep, 2);
+arrVert08 = arrangeAtomsLineY(xY08, lineaY08, MA, listaVert08, nMA);
+
+namefile = strcat('verticales', '08');
+fileID = fopen(namefile, 'w');
+for i=1:length(listaVert08)
+   fprintf(fileID, '%f\t %f\t %f\t\n', ...
+   arrVert08(i,1), arrVert08(i, 2), MA(listaVert08(i), 3));
+end
+fprintf(fileID, '\n');
+fclose(fileID);
+verticalesL(8, 1) = arrVert08(1,2);
+
+for i=1:length(arrVert08) 
+
+   [ii jj] = ismember(listaVert08(i), nMA);
+
+   nMA(jj, :) = [listaVert08(i) arrVert08(i, 1) arrVert08(i, 2)];
+
+end
+%plot(nMA(:,2), nMA(:,3), 'ro')
+A1 = [arrVert08(1, 1) arrVert08(1, 2)];
+A2 = [arrVert08(length(arrVert08), 1) arrVert08(length(arrVert08), 2)];
+[xY08t lineaY08t] = makeAtomsLineY(A1, A2);
+plot(xY08t, lineaY08t)
+
+
+[xY09 lineaY09] = makeAtomsLineY(C136, C115);
+listaVert09 = crossLine2dAtom(MA, xY09, lineaY09, r, ep, 2);
+arrVert09 = arrangeAtomsLineY(xY09, lineaY09, MA, listaVert09, nMA);
+
+namefile = strcat('verticales', '09');
+fileID = fopen(namefile, 'w');
+for i=1:length(listaVert09)
+   fprintf(fileID, '%f\t %f\t %f\t\n', ...
+   arrVert09(i,1), arrVert09(i, 2), MA(listaVert09(i), 3));
+end
+fprintf(fileID, '\n');
+fclose(fileID);
+verticalesL(9, 1) = arrVert09(1,2);
+
+for i=1:length(arrVert09) 
+
+   [ii jj] = ismember(listaVert09(i), nMA);
+
+   nMA(jj, :) = [listaVert09(i) arrVert09(i, 1) arrVert09(i, 2)];
+
+end
+%plot(nMA(:,2), nMA(:,3), 'ro')
+A1 = [arrVert09(1, 1) arrVert09(1, 2)];
+A2 = [arrVert09(length(arrVert09), 1) arrVert09(length(arrVert09), 2)];
+[xY09t lineaY09t] = makeAtomsLineY(A1, A2);
+plot(xY09t, lineaY09t)
+
+
+
+[xY10 lineaY10] = makeAtomsLineY(C140, C112);
+listaVert10 = crossLine2dAtom(MA, xY10, lineaY10, r, ep, 2);
+arrVert10 = arrangeAtomsLineY(xY10, lineaY10, MA, listaVert10, nMA);
+
+namefile = strcat('verticales', '10');
+fileID = fopen(namefile, 'w');
+for i=1:length(listaVert10)
+   fprintf(fileID, '%f\t %f\t %f\t\n', ...
+   arrVert10(i,1), arrVert10(i, 2), MA(listaVert10(i), 3));
+end
+fprintf(fileID, '\n');
+fclose(fileID);
+verticalesL(10, 1) = arrVert10(1,2);
+
+for i=1:length(arrVert10) 
+
+   [ii jj] = ismember(listaVert10(i), nMA);
+
+   nMA(jj, :) = [listaVert10(i) arrVert10(i, 1) arrVert10(i, 2)];
+
+end
+%plot(nMA(:,2), nMA(:,3), 'ro')
+A1 = [arrVert10(1, 1) arrVert10(1, 2)];
+A2 = [arrVert10(length(arrVert10), 1) arrVert10(length(arrVert10), 2)];
+[xY10t lineaY10t] = makeAtomsLineY(A1, A2);
+plot(xY10t, lineaY10t)
+
+
+
+[xY11 lineaY11] = makeAtomsLineY(C137, C94);
+listaVert11 = crossLine2dAtom(MA, xY11, lineaY11, r, ep, 2);
+arrVert11 = arrangeAtomsLineY(xY11, lineaY11, MA, listaVert11, nMA);
+
+namefile = strcat('verticales', '11');
+fileID = fopen(namefile, 'w');
+for i=1:length(listaVert11)
+   fprintf(fileID, '%f\t %f\t %f\t\n', ...
+   arrVert11(i,1), arrVert11(i, 2), MA(listaVert11(i), 3));
+end
+fprintf(fileID, '\n');
+fclose(fileID);
+verticalesL(11, 1) = arrVert11(1,2);
+
+for i=1:length(arrVert11) 
+
+   [ii jj] = ismember(listaVert11(i), nMA);
+
+   nMA(jj, :) = [listaVert11(i) arrVert11(i, 1) arrVert11(i, 2)];
+
+end
+%plot(nMA(:,2), nMA(:,3), 'ro')
+A1 = [arrVert11(1, 1) arrVert11(1, 2)];
+A2 = [arrVert11(length(arrVert11), 1) arrVert11(length(arrVert11), 2)];
+[xY11t lineaY11t] = makeAtomsLineY(A1, A2);
+plot(xY11t, lineaY11t)
+
+
+[xY12 lineaY12] = makeAtomsLineY(C139, C92);
+listaVert12 = crossLine2dAtom(MA, xY12, lineaY12, r, ep, 2);
+arrVert12 = arrangeAtomsLineY(xY12, lineaY12, MA, listaVert12, nMA);
+
+namefile = strcat('verticales', '12');
+fileID = fopen(namefile, 'w');
+for i=1:length(listaVert12)
+   fprintf(fileID, '%f\t %f\t %f\t\n', ...
+   arrVert12(i,1), arrVert12(i, 2), MA(listaVert12(i), 3));
+end
+fprintf(fileID, '\n');
+fclose(fileID);
+verticalesL(12, 1) = arrVert12(1,2);
+
+for i=1:length(arrVert12) 
+
+   [ii jj] = ismember(listaVert12(i), nMA);
+
+   nMA(jj, :) = [listaVert12(i) arrVert12(i, 1) arrVert12(i, 2)];
+
+end
+%plot(nMA(:,2), nMA(:,3), 'ro')
+A1 = [arrVert12(1, 1) arrVert12(1, 2)];
+A2 = [arrVert12(length(arrVert12), 1) arrVert12(length(arrVert12), 2)];
+[xY12t lineaY12t] = makeAtomsLineY(A1, A2);
+plot(xY12t, lineaY12t)
+
+
+[xY13 lineaY13] = makeAtomsLineY(C138, C70);
+listaVert13 = crossLine2dAtom(MA, xY13, lineaY13, r, ep, 2);
+arrVert13 = arrangeAtomsLineY(xY13, lineaY13, MA, listaVert13, nMA);
+
+namefile = strcat('verticales', '13');
+fileID = fopen(namefile, 'w');
+for i=1:length(listaVert13)
+   fprintf(fileID, '%f\t %f\t %f\t\n', ...
+   arrVert13(i,1), arrVert13(i, 2), MA(listaVert13(i), 3));
+end
+fprintf(fileID, '\n');
+fclose(fileID);
+verticalesL(13, 1) = arrVert13(1,2);
+
+for i=1:length(arrVert13) 
+
+   [ii jj] = ismember(listaVert13(i), nMA);
+
+   nMA(jj, :) = [listaVert13(i) arrVert13(i, 1) arrVert13(i, 2)];
+
+end
+plot(nMA(:,2), nMA(:,3), 'ro')
+A1 = [arrVert13(1, 1) arrVert13(1, 2)];
+A2 = [arrVert13(length(arrVert13), 1) arrVert13(length(arrVert13), 2)];
+[xY13t lineaY13t] = makeAtomsLineY(A1, A2);
+plot(xY13t, lineaY13t)
 
 
 
