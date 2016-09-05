@@ -244,7 +244,7 @@ offset = 0;
 [xX02 lineaX02] = makeAtomsLine(H69, H47);
 listaHor02 = crossLine2dAtom(MA, xX02, lineaX02, r, ep, 1);
 arrHor02 = arrangeAtomsLine(xX02, lineaX02, MA, listaHor02, 0.001);
-namefile = strcat('horizontales', '02');
+namefile = strcat('horizontales', '2');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor02)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -275,7 +275,7 @@ grid on
 listaHor03 = crossLine2dAtom(MA, xX03, lineaX03, r, ep, 1);
 arrHor03 = arrangeAtomsLine(xX03, lineaX03, MA, listaHor03, 0.001);
 
-namefile = strcat('horizontales', '03');
+namefile = strcat('horizontales', '3');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor03)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -302,7 +302,7 @@ plot(xX03t, lineaX03t)
 listaHor04 = crossLine2dAtom(MA, xX04, lineaX04, r, ep, 1);
 arrHor04 = arrangeAtomsLine(xX04, lineaX04, MA, listaHor04, 0.001);
 
-namefile = strcat('horizontales', '04');
+namefile = strcat('horizontales', '4');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor04)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -330,7 +330,7 @@ plot(xX04t, lineaX04t)
 listaHor05 = crossLine2dAtom(MA, xX05, lineaX05, r, ep, 1);
 arrHor05 = arrangeAtomsLine(xX05, lineaX05, MA, listaHor05, 0.001);
 
-namefile = strcat('horizontales', '05');
+namefile = strcat('horizontales', '5');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor05)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -359,7 +359,7 @@ plot(xX05t, lineaX05t)
 listaHor06 = crossLine2dAtom(MA, xX06, lineaX06, r, ep, 1);
 arrHor06 = arrangeAtomsLine(xX06, lineaX06, MA, listaHor06, 0.001);
 
-namefile = strcat('horizontales', '06');
+namefile = strcat('horizontales', '6');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor06)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -389,7 +389,7 @@ plot(xX06t, lineaX06t)
 listaHor07 = crossLine2dAtom(MA, xX07, lineaX07, r, ep, 1);
 arrHor07 = arrangeAtomsLine(xX07, lineaX07, MA, listaHor07, 0.001);
 
-namefile = strcat('horizontales', '07');
+namefile = strcat('horizontales', '7');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor07)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -418,7 +418,7 @@ plot(xX07t, lineaX07t)
 listaHor08 = crossLine2dAtom(MA, xX08, lineaX08, r, ep, 1);
 arrHor08 = arrangeAtomsLine(xX08, lineaX08, MA, listaHor08, 0.001);
 
-namefile = strcat('horizontales', '08');
+namefile = strcat('horizontales', '8');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor08)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -448,7 +448,7 @@ plot(xX08t, lineaX08t)
 listaHor09 = crossLine2dAtom(MA, xX09, lineaX09, r, ep, 1);
 arrHor09 = arrangeAtomsLine(xX09, lineaX09, MA, listaHor09, 0.001);
 
-namefile = strcat('horizontales', '09');
+namefile = strcat('horizontales', '9');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor09)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -593,7 +593,7 @@ plot(xX13t, lineaX13t)
 listaVert01 = crossLine2dAtom(MA, xY01, lineaY01, r, ep, 2);
 arrVert01 = arrangeAtomsLineY(xY01, lineaY01, MA, listaVert01, nMA);
 
-namefile = strcat('verticales', '01');
+namefile = strcat('verticales', '1');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert01)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -621,7 +621,7 @@ plot(xY01t, lineaY01t)
 listaVert02 = crossLine2dAtom(MA, xY02, lineaY02, r, ep, 2);
 arrVert02 = arrangeAtomsLineY(xY02, lineaY02, MA, listaVert02, nMA);
 
-namefile = strcat('verticales', '02');
+namefile = strcat('verticales', '2');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert02)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -649,7 +649,7 @@ plot(xY02t, lineaY02t)
 listaVert03 = crossLine2dAtom(MA, xY03, lineaY03, r, ep, 2);
 arrVert03 = arrangeAtomsLineY(xY03, lineaY03, MA, listaVert03, nMA);
 
-namefile = strcat('verticales', '03');
+namefile = strcat('verticales', '3');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert03)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -679,7 +679,7 @@ plot(xY03t, lineaY03t)
 listaVert04 = crossLine2dAtom(MA, xY04, lineaY04, r, ep, 2);
 arrVert04 = arrangeAtomsLineY(xY04, lineaY04, MA, listaVert04, nMA);
 
-namefile = strcat('verticales', '04');
+namefile = strcat('verticales', '4');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert04)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -707,7 +707,7 @@ plot(xY04t, lineaY04t)
 listaVert05 = crossLine2dAtom(MA, xY05, lineaY05, r, ep, 2);
 arrVert05 = arrangeAtomsLineY(xY05, lineaY05, MA, listaVert05, nMA);
 
-namefile = strcat('verticales', '05');
+namefile = strcat('verticales', '5');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert05)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -736,7 +736,7 @@ plot(xY05t, lineaY05t)
 listaVert06 = crossLine2dAtom(MA, xY06, lineaY06, r, ep, 2);
 arrVert06 = arrangeAtomsLineY(xY06, lineaY06, MA, listaVert06, nMA);
 
-namefile = strcat('verticales', '06');
+namefile = strcat('verticales', '6');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert06)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -765,7 +765,7 @@ plot(xY06t, lineaY06t)
 listaVert07 = crossLine2dAtom(MA, xY07, lineaY07, r, ep, 2);
 arrVert07 = arrangeAtomsLineY(xY07, lineaY07, MA, listaVert07, nMA);
 
-namefile = strcat('verticales', '07');
+namefile = strcat('verticales', '7');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert07)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -796,7 +796,7 @@ plot(xY07t, lineaY07t)
 listaVert08 = crossLine2dAtom(MA, xY08, lineaY08, r, ep, 2);
 arrVert08 = arrangeAtomsLineY(xY08, lineaY08, MA, listaVert08, nMA);
 
-namefile = strcat('verticales', '08');
+namefile = strcat('verticales', '8');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert08)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -824,7 +824,7 @@ plot(xY08t, lineaY08t)
 listaVert09 = crossLine2dAtom(MA, xY09, lineaY09, r, ep, 2);
 arrVert09 = arrangeAtomsLineY(xY09, lineaY09, MA, listaVert09, nMA);
 
-namefile = strcat('verticales', '09');
+namefile = strcat('verticales', '9');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert09)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -1247,6 +1247,44 @@ for i=1:length(ynMA2)
 end
 axis([limitXIzq limitXDer limitYAbj limitYArr]);
 grid on
+
+
+
+for i=2:length(horizontalesL)
+
+   s = strcat('horizontales', int2str(i));
+   s2 = strcat('splineHor', i);
+   filename = s;
+   Ahr = importdata(filename);
+
+
+   if (Ahr(1,1) > xnMA(1))
+
+      [ii jj] = min(xnMA - Ahr(1,1));
+
+      for j=1:jj
+
+         tAhr(j,1) = 
+
+
+   
+   
+   
+   interHor(i, :) = spline(Ahr(:,1), Ahr(:,3), xnMA);
+
+end
+
+s = strcat('horizontales', int2str(2));
+filename = s;
+Ahr = importdata(filename);
+figure('Name', 'verSpliness')
+plot(Ahr(:,1), Ahr(:,3), 'ro')
+hold on
+grid on
+plot(xnMA, interHor(2,:))
+
+
+
 
 
 
