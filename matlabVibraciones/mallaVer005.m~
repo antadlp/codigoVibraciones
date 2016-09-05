@@ -1251,28 +1251,101 @@ grid on
 
 
 for i=2:length(horizontalesL)
+%for i=2:3
+
+%   Ahr =0;
+%   s = 0;
+%   s2 = 0;
+%   tAhr = 0;
+%   toSpl = 0;
+%   clear Ahr, s, s2, tAhr, toSpl;
 
    s = strcat('horizontales', int2str(i));
    s2 = strcat('splineHor', i);
    filename = s;
    Ahr = importdata(filename);
 
-   minx = mim(Ahr(:,1));
+   toSpl(:,1) = Ahr(:,1);
+   toSpl(:,2) = Ahr(:,3);
    
-   
-   interHor(i, :) = spline(Ahr(:,1), Ahr(:,3), xnMA);
+   if (Ahr(1,1) > xnMA(1))
+
+      [ii jj] = min(abs(xnMA - Ahr(1,1)));
+
+      for j=1:(jj-1)
+
+         tAhr(j,1) = xnMA(j);
+         tAhr(j,2) = 0;
+
+      end
+
+      ll = 1;
+      for j=jj:(jj + length(Ahr(:,1)) - 1)
+
+         tAhr(j,1) = Ahr(ll,1);
+         tAhr(j,2) = Ahr(ll,3);
+         ll = ll + 1;
+      
+      end
+
+   end
+
+   if ( Ahr(length(Ahr(:,1)), 1) < xnMA(length(xnMA)) )
+
+      [ii jj] = min(abs(xnMA - Ahr(length(Ahr(:,1)),1)));
+
+      rr = length(xnMA) - jj;
+
+      tt = length(tAhr(:,1));
+      tt = tt + 1;
+      ss = 1;
+      for q=tt:(tt + rr - 1)
+
+         tAhr(q,1) = xnMA(jj + ss);
+         tAhr(q,2) = 0.0;
+         ss = ss + 1;
+      end
+
+   end
+
+   if (exist('tAhr'))
+
+      toSpl = tAhr;
+
+   end
+
+   figure('Name', 'vertoSplit')
+   plot(toSpl(:,1), toSpl(:,2), 'r')
+   hold on
+   plot(toSpl(:,1), toSpl(:,2), 'ro')
+   grid on
+   plot(xnMA, 0, '-go')
+   plot(Ahr(:,1), Ahr(:,3))
+
+   interHor(i, :) = spline(toSpl(:,1), toSpl(:,2), xnMA);
+
+   plot(xnMA, interHor(i,:), 'ko--')
+
+   clear toSpl;
+
+   if (exist('tAhr'))
+      clear tAhr;
+   end
+
+
 
 end
 
-s = strcat('horizontales', int2str(2));
-filename = s;
-Ahr = importdata(filename);
-figure('Name', 'verSpliness')
-plot(Ahr(:,1), Ahr(:,3), 'ro')
-hold on
-grid on
-plot(xnMA, interHor(2,:))
-
+%
+%s = strcat('horizontales', int2str(2));
+%filename = s;
+%Ahr = importdata(filename);
+%figure('Name', 'verSpliness')
+%plot(Ahr(:,1), Ahr(:,3), 'ro')
+%hold on
+%grid on
+%plot(xnMA, interHor(2,:))
+%
 
 
 
