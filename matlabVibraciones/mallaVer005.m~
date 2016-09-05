@@ -1322,8 +1322,8 @@ for i=2:length(horizontalesL)
    plot(xnMA, 0, '-go')
    plot(Ahr(:,1), Ahr(:,3))
 
-%   interHor(i, :) = spline(toSpl(:,1), toSpl(:,2), xnMA);
-   interHor(i, :) = pchip(toSpl(:,1), toSpl(:,2), xnMA);
+   interHor(i, :) = spline(toSpl(:,1), toSpl(:,2), xnMA);
+%   interHor(i, :) = pchip(toSpl(:,1), toSpl(:,2), xnMA);
 
    plot(xnMA, interHor(i,:), 'ko--')
 

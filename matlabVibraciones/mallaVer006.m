@@ -1,6 +1,8 @@
+function [Xpol Ypol inter2] = mallaVer006
+
 close all
 clear all
-filename = 'zzout2.dat';
+filename = 'frame-001-001.dat';
 %filename = 'frame-500-000.dat';
 XYZFile = importdata(filename);
 format short e
@@ -1314,18 +1316,18 @@ for i=2:length(horizontalesL)
 
    end
 
-   figure('Name', 'vertoSplit')
-   plot(toSpl(:,1), toSpl(:,2), 'r')
-   hold on
-   plot(toSpl(:,1), toSpl(:,2), 'ro')
-   grid on
-   plot(xnMA, 0, '-go')
-   plot(Ahr(:,1), Ahr(:,3))
-
-   interHor(i, :) = spline(toSpl(:,1), toSpl(:,2), xnMA);
-%   interHor(i, :) = pchip(toSpl(:,1), toSpl(:,2), xnMA);
-
-   plot(xnMA, interHor(i,:), 'ko--')
+%   figure('Name', 'vertoSplit')
+%   plot(toSpl(:,1), toSpl(:,2), 'r')
+%   hold on
+%   plot(toSpl(:,1), toSpl(:,2), 'ro')
+%   grid on
+%   plot(xnMA, 0, '-go')
+%   plot(Ahr(:,1), Ahr(:,3))
+%
+%%   interHor(i, :) = spline(toSpl(:,1), toSpl(:,2), xnMA);
+   interHor(i, :) = pchip(toSpl(:,1), toSpl(:,2), xnMA);
+%
+%   plot(xnMA, interHor(i,:), 'ko--')
 
    clear toSpl;
 
@@ -1348,26 +1350,141 @@ end
 %plot(xnMA, interHor(2,:))
 %
 
+for i=1:length(verticalesL)
+%for i=2:3
+
+%   Ahr =0;
+%   s = 0;
+%   s2 = 0;
+%   tAhr = 0;
+%   toSpl = 0;
+%   clear Ahr, s, s2, tAhr, toSpl;
+
+   s = strcat('verticales', int2str(i));
+   s2 = strcat('splineVert', i);
+   filename = s;
+   Avt = importdata(filename);
+
+   Avt(:,2) = floor(Avt(:,2)*10000)/10000;
+   ynMA = floor(ynMA*10000)/10000;
+
+   toSpl(:,1) = Avt(:,2);
+   toSpl(:,2) = Avt(:,3);
+   
+   if (Avt(1,2) > ynMA(1))
+
+      [ii jj] = min(abs(ynMA - Avt(1,2)));
+
+      for j=1:(jj-1)
+
+         tAvt(j,1) = ynMA(j);
+         tAvt(j,2) = 0;
+
+      end
+
+      ll = 1;
+      for j=jj:(jj + length(Avt(:,2)) - 1)
+
+         tAvt(j,1) = Avt(ll,2);
+         tAvt(j,2) = Avt(ll,3);
+         ll = ll + 1;
+      
+      end
+
+   end
+
+   [nn mm] = size(Avt);
+
+   if (Avt(nn, 2) < ynMA(length(ynMA)))
+
+      [ii jj] = min(abs(ynMA - Avt(length(Avt(:,2)),2)));
+
+      rr = length(ynMA) - jj;
+
+      tt = length(tAvt(:,1));
+      tt = tt + 1;
+      ss = 1;
+      for q=tt:(tt + rr - 1)
+
+         tAvt(q,1) = ynMA(jj + ss);
+         tAvt(q,2) = 0.0;
+         ss = ss + 1;
+      end
+
+   end
+
+   if (exist('tAvt'))
+
+      toSpl = tAvt;
+
+   end
+
+%   figure('Name', strcat('interpolVert',int2str(i)))
+%   plot(toSpl(:,1), toSpl(:,2), 'r')
+%   hold on
+%   plot(toSpl(:,1), toSpl(:,2), 'ro')
+%   grid on
+%   plot(ynMA, 0, '-go')
+%   plot(Avt(:,2), Avt(:,3))
+
+%   interHor(i, :) = spline(toSpl(:,1), toSpl(:,2), xnMA);
+   interVert(i, :) = pchip(toSpl(:,1), toSpl(:,2), ynMA);
+
+%   plot(ynMA, interVert(i,:), 'ko--')
+
+   clear toSpl;
+
+   if (exist('tAvt'))
+      clear tAvt;
+   end
+
+
+
+end
+
+for i=1:length(xnMA)
+   for j=1:length(ynMA)
+
+      interTotal(i,j) = (interHor(j,i) + interVert(i,j))/2;
+
+   end
+end
+
+[XNMA YNMA] = meshgrid(xnMA, ynMA);
+figure('Name', 'interPolTotal')
+surface(XNMA, YNMA, interTotal', 'EdgeColor', 'none'), view(3)
+axis([-inf inf -inf inf -2 2])
+
+figure('Name', 'interPolTotalM')
+mesh(XNMA, YNMA, interTotal')
+axis([-inf inf -inf inf -2 2])
+
+fs = 10;
+x = min(xnMA):1/fs:max(xnMA);
+y = min(ynMA):1/fs:max(ynMA);
+[Xpol Ypol] = meshgrid(x,y);
+inter2 = interp2(XNMA,YNMA,interTotal',Xpol,Ypol);
+
+figure('Name', 'inter2total')
+surface(Xpol,Ypol,inter2,'EdgeColor', 'none'), view(3)
+axis([-inf inf -inf inf -2 2])
+
+
+y2 = analisisfft001(fs, inter2, Xpol, Ypol,  'malla500');
+y2
 
 
 
 
-
-
-
-
-
-
-
-
-figure('Name', 'xy')
-plot(xX03, lineaX03)
-hold on
-plot(xX02, lineaX02)
-%plot([H11(1)], [H11(2)], 'o')
-plot(X', Y', 'o')
-plot(nMA(:,2), nMA(:,3), 'ro')
-axis([limitXIzq limitXDer limitYAbj limitYArr]);
-grid on
-
+%^^^
+%figure('Name', 'xy')
+%plot(xX03, lineaX03)
+%hold on
+%plot(xX02, lineaX02)
+%%plot([H11(1)], [H11(2)], 'o')
+%plot(X', Y', 'o')
+%plot(nMA(:,2), nMA(:,3), 'ro')
+%axis([limitXIzq limitXDer limitYAbj limitYArr]);
+%grid on
+%
 

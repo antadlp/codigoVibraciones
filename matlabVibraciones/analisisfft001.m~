@@ -35,9 +35,16 @@ Z1f = fft2(Z1);
 Z1sh = fftshift(Z1f);
 Z1P = Z1sh.*conj(Z1sh);
 x2 = (-M/2:M/2-1)*(fs/M);
-y2 = x2;
+length(x2);
+y2 = (-N/2:N/2-1)*(fs/N);
+length(y2);
 [X2 Y2] = meshgrid(x2, y2);
+size(X2');
+size(Y2');
+size(Z1P);
 
+X2 = X2';
+Y2 = Y2';
 S1P = strcat('Z1P-', S);
 figure('Name', S1P)
 maxP = maxValueMatrix(Z1P);
@@ -52,7 +59,7 @@ mesh(X2, Y2, Z1Pk)
 l = 1;
 for i=1:M
    for j=1:N
-      if (Z1P(i,j) >= 0.0001*maxP)
+      if (Z1P(i,j) >= 0.5*maxP)
          y(l, :) = [x2(i) y2(j)];
          l = l + 1;
       end
