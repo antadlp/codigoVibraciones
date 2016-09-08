@@ -3,7 +3,7 @@ function [Xpol Ypol inter2] = mallaVer006
 close all
 clear all
 filename = 'frame-001-001.dat';
-%filename = 'frame-500-000.dat';
+%filename = 'zzout2.dat';
 XYZFile = importdata(filename);
 format short e
 
@@ -1470,9 +1470,13 @@ surface(Xpol,Ypol,inter2,'EdgeColor', 'none'), view(3)
 axis([-inf inf -inf inf -2 2])
 
 
-y2 = analisisfft001(fs, inter2, Xpol, Ypol,  'malla500');
-y2
+[v, w, vv, ww, Pf] = analisisfft001(fs, inter2, Xpol, Ypol,  'malla500');
 
+v
+w
+vv
+ww
+Pf
 
 
 
@@ -1487,4 +1491,5 @@ y2
 %axis([limitXIzq limitXDer limitYAbj limitYArr]);
 %grid on
 %
+
 

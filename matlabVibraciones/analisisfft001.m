@@ -1,4 +1,4 @@
-function y = analisisfft001(fs, Z1, X1, Y1, S)
+function [v w vv ww Pf] = analisisfft001(fs, Z1, X1, Y1, S)
 
 
 [M N] = size(Z1);
@@ -48,8 +48,9 @@ Y2 = Y2';
 S1P = strcat('Z1P-', S);
 figure('Name', S1P)
 maxP = maxValueMatrix(Z1P);
-k = 0.05;
+k = 1.00;
 Z1Pk = Z1P/(k*maxP);
+Z1Pk = Z1P;
 surface(X2, Y2, Z1Pk,'EdgeColor', 'none'), view(3)
 
 Sms = strcat('Zms-', S);
@@ -59,12 +60,61 @@ mesh(X2, Y2, Z1Pk)
 l = 1;
 for i=1:M
    for j=1:N
-      if (Z1P(i,j) >= 0.05*maxP)
-         y(l, :) = [x2(i) y2(j)];
+      if (Z1P(i,j) >= 0.5*maxP)
+%         y(l, :) = [x2(i) y2(j)];
+         yx(l) = x2(i);
+         yy(l) = y2(j);
          l = l + 1;
       end
    end
 end
+
+v = unique(yx);
+w = unique(yy);
+numFreq = 10;
+
+if (length(v) < numFreq)
+
+   vv = v;
+
+else
+
+   for i=1:numFreq 
+
+      vv(i) = v(length(v) - (i-1));
+
+   end
+
+end
+
+
+
+if (length(w) < numFreq)
+
+   ww = w;
+
+else
+
+   for i=1:numFreq 
+
+      ww(i) = w(length(w) - (i-1));
+
+   end
+
+end
+
+dummie = Z1P;
+for i=1:numFreq
+   
+   [aa bb cc] = maxValueMatrix2(dummie);
+   Pf(i,:) = [x2(bb) y2(cc)];
+   dummie(bb, cc) = -inf;
+
+end
+
+
+
+
 
 
 
