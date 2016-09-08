@@ -1459,7 +1459,7 @@ figure('Name', 'interPolTotalM')
 mesh(XNMA, YNMA, interTotal')
 axis([-inf inf -inf inf -2 2])
 
-fs = 10;
+fs = 100;
 x = min(xnMA):1/fs:max(xnMA);
 y = min(ynMA):1/fs:max(ynMA);
 [Xpol Ypol] = meshgrid(x,y);

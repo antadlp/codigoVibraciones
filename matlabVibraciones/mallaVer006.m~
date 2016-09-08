@@ -1459,7 +1459,7 @@ figure('Name', 'interPolTotalM')
 mesh(XNMA, YNMA, interTotal')
 axis([-inf inf -inf inf -2 2])
 
-fs = 10;
+fs = 100;
 x = min(xnMA):1/fs:max(xnMA);
 y = min(ynMA):1/fs:max(ynMA);
 [Xpol Ypol] = meshgrid(x,y);
@@ -1470,12 +1470,13 @@ surface(Xpol,Ypol,inter2,'EdgeColor', 'none'), view(3)
 axis([-inf inf -inf inf -2 2])
 
 
-[v, w, vv, ww] = analisisfft001(fs, inter2, Xpol, Ypol,  'malla500');
+[v, w, vv, ww, Pf] = analisisfft001(fs, inter2, Xpol, Ypol,  'malla500');
 
 v
 w
 vv
 ww
+Pf
 
 
 
