@@ -9,16 +9,27 @@
       parameter (m1=12)
 
       common/constants/zero,pi
-
+      CHARACTER (LEN = 400) ichar
+      CHARACTER (LEN = 400) nmOut 
       character title*30
       dimension iswm(m1), angm(m1)
 
       zero= 0.d0
       pi= 3.141592654
+      frames = 1000
 
       call getData (title)
       call trackrota (hmx,hmy,hmz,iswm,angm)
       call inveRota  (hmx,hmy,hmz,iswm,angm)
+
+      DO i = 1, frames
+         
+         WRITE(ichar,*) i 
+         nmOut = TRIM('/home/toshiba/Frame/'//TRIM(ichar)//'.xyz')
+         OPEN(81,FILE=TRIM(nmOut),STATUS='unknown')
+
+      END DO ! <-----------------
+
 
       write (*,*)
       write (*,*), "input file= ", title
