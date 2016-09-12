@@ -26,11 +26,9 @@ C      strSCFCYC = ADJUSTL(strSCFCYC)
       DO i = 1, frames
          
          WRITE(ich,*) i 
-         nmOut = TRIM('/home/assusadmin2/Frame/'//TRIM(ich)//'.xyz')
-         OPEN(81,FILE=TRIM(nmOut),STATUS='unknown')
-
-         call getData (nmOut)
-         call trackrota (hmx,hmy,hmz,iswm,angm)
+         call getData (ich)
+         call trackrota (hmx,hmy,hmz,iswm,angm,ich)
+         call inveRota  (hmx,hmy,hmz,iswm,angm)
 
       END DO  
 
@@ -60,6 +58,10 @@ c      read*, i1, i2, i3
       i1 = 11;
       i2 = 7;
       i3 = 1;
+      
+      nmIn = TRIM('/home/assusadmin2/frame/'//TRIM(ich)//'.xyz')
+      OPEN(81,FILE=TRIM(nmIn),STATUS='unknown')
+
 
 
 C     open (unit=10,file=title,status='unknown')
@@ -68,8 +70,8 @@ C     open (unit=10,file=title,status='unknown')
 * read atoms of the molecule
 * --------------------
 
-      read (10,*) natoms
-      read (10,*)
+      read (82,*) natoms
+      read (82,*)
 
       write (*,*)
       write (*,*), "------------------------------"
@@ -77,7 +79,7 @@ C     open (unit=10,file=title,status='unknown')
 
       do j= 1, natoms ! <-------
                                  !
-      read (10,*)  name1(j), x0(j), y0(j), z0(j)
+      read (82,*)  name1(j), x0(j), y0(j), z0(j)
 c     write (*,12) name1(j), x0(j), y0(j), z0(j)
 c     read (10,*)  name1(j), x0(j), y0(j), z0(j), den(j)
                                  !
@@ -160,7 +162,11 @@ c     read (10,*)  name1(j), x0(j), y0(j), z0(j), den(j)
 
       dimension iswm(m2), angm(m2)
 
-      open (unit=10,file='zzout',status='unknown')
+      CHARACTER (LEN = 400) nmIn 
+
+      nmIn = TRIM('/home/assusadmin2/frame/'//TRIM(ich)//'.xyz')
+      PRINT*, nmIn
+      OPEN(82,FILE=TRIM(nmIn),STATUS='unknown')
 
 * -----------------------------
 * initialize translation and rotation parameters
@@ -201,8 +207,8 @@ c     read (10,*)  name1(j), x0(j), y0(j), z0(j), den(j)
 * write atoms of the rotated molecule
 * -----------------------------
 
-      write (10,*) natoms-3
-      write (10,*) "molec"
+      write (81,*) natoms-3
+      write (81,*) "molec"
 
 * write to the output file
 
@@ -211,7 +217,7 @@ c     read (10,*)  name1(j), x0(j), y0(j), z0(j), den(j)
 
       do j= 1, natoms-3
       if (j.le.4) write (*,14) name1(j), xmol(j), ymol(j), zmol(j)
-      write (10,14) name1(j+3), xmol(j+3), ymol(j+3), zmol(j+3)
+      write (81,14) name1(j+3), xmol(j+3), ymol(j+3), zmol(j+3)
       end do
 
    12 format (i4,4x,i4,4x,f10.3)

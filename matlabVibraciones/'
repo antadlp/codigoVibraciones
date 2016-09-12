@@ -26,10 +26,10 @@ C      strSCFCYC = ADJUSTL(strSCFCYC)
       DO i = 1, frames
          
          WRITE(ich,*) i 
-         nmIn = TRIM('/home/assusadmin2/frame/'//TRIM(ich)//'.xyz')
-         OPEN(81,FILE=TRIM(nmIn),STATUS='unknown')
+         nmOut = TRIM('/home/assusadmin2/Frame/'//TRIM(ich)//'.xyz')
+         OPEN(81,FILE=TRIM(nmOut),STATUS='unknown')
 
-         call getData (nmIn)
+         call getData (nmOut)
          call trackrota (hmx,hmy,hmz,iswm,angm,ich)
          call inveRota  (hmx,hmy,hmz,iswm,angm)
 
