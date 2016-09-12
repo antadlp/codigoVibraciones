@@ -11,24 +11,32 @@
       common/constants/zero,pi
       CHARACTER (LEN = 400) ich
       CHARACTER (LEN = 400) nmOut 
+      CHARACTER (LEN = 400) nmIn
       character title*30
       dimension iswm(m1), angm(m1)
+      INTEGER i, frames
 
       zero= 0.d0
       pi= 3.141592654
-      frames = 1000
-
-      call inveRota  (hmx,hmy,hmz,iswm,angm)
+      frames = 1000 
 
 c      strMDCYC = ADJUSTL(strMDCYC)
 C      strSCFCYC = ADJUSTL(strSCFCYC)
 
-      DO i = 1, frames
+      DO i=1,frames
          
          WRITE(ich,*) i 
-         call getData (ich)
+        
+         ich = ADJUSTL(ich)
+!         nmIn = TRIM('/home/toshiba/out001/frame'//TRIM(ich)//'.xyzz')
+!         OPEN(82,FILE=TRIM(nmIn),STATUS='NEW')
+!         PRINT*, nmIn
+!         PRINT*, ich
+
+         call getData (i)
          call trackrota (hmx,hmy,hmz,iswm,angm,ich)
          call inveRota  (hmx,hmy,hmz,iswm,angm)
+!
 
       END DO  
 
@@ -36,8 +44,8 @@ C      strSCFCYC = ADJUSTL(strSCFCYC)
       end
 * *********************************
 * get mol info and put it in a common space
-* *********************************
-      subroutine getData (title)
+!* *********************************
+      subroutine getData (i)
       implicit double precision (a-h,o-z)
       parameter (m1=10000)
 
@@ -45,9 +53,9 @@ C      strSCFCYC = ADJUSTL(strSCFCYC)
       common/mol2/xmol(m1),ymol(m1),zmol(m1)   ! of the arrays and put
       common/mol3/den(m1)                      ! them in a common space
       common/mol4/x0(m1),y0(m1),z0(m1)
-
-      character name1*4, name2*4, title*30
-
+      character name1*4, name2*4, title*30 
+      CHARACTER (LEN = 400) ich
+      CHARACTER (LEN = 400) nmIn
 c      print*
 c      write (*,*) "give inputfile"
 c      read*, title
@@ -59,12 +67,13 @@ c      read*, i1, i2, i3
       i2 = 7;
       i3 = 1;
       
-      nmIn = TRIM('/home/assusadmin2/frame/'//TRIM(ich)//'.xyz')
-      OPEN(81,FILE=TRIM(nmIn),STATUS='unknown')
-
-
-
-C     open (unit=10,file=title,status='unknown')
+      WRITE(ich,*) i 
+      ich = ADJUSTL(ich)
+      nmIn = TRIM('/home/toshiba/in001/frame'//TRIM(ich)//'.xyz')
+      OPEN(82,FILE=TRIM(nmIn),STATUS='OLD')
+!     PRINT*, nmIn
+!     PRINT*, ich
+C     !open (unit=10,file=title,status='unknown')
 
 * --------------------
 * read atoms of the molecule
@@ -87,7 +96,7 @@ c     read (10,*)  name1(j), x0(j), y0(j), z0(j), den(j)
                                  !
       end do ! <-----------------
 
-      close (10)
+      close (82)
 
 * ---------------------------------
 * take the chosen atoms as the first 3 atoms
@@ -162,11 +171,13 @@ c     read (10,*)  name1(j), x0(j), y0(j), z0(j), den(j)
 
       dimension iswm(m2), angm(m2)
 
-      CHARACTER (LEN = 400) nmIn 
+      CHARACTER (LEN = 400) nmOut
+      CHARACTER (LEN = 400) ich 
 
-      nmIn = TRIM('/home/assusadmin2/frame/'//TRIM(ich)//'.xyz')
-      PRINT*, nmIn
-      OPEN(82,FILE=TRIM(nmIn),STATUS='unknown')
+      ich = ADJUSTL(ich)
+      nmOut = TRIM('/home/toshiba/out001/frameR'//TRIM(ich)//'.xyz')
+!     PRINT*, nmOut
+      OPEN(81,FILE=TRIM(nmOut),STATUS='NEW')
 
 * -----------------------------
 * initialize translation and rotation parameters
@@ -223,7 +234,7 @@ c     read (10,*)  name1(j), x0(j), y0(j), z0(j), den(j)
    12 format (i4,4x,i4,4x,f10.3)
    14 format (a,3f9.3)
 
-      close (10)
+      close (82)
 
       return
       end
