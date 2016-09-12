@@ -9,7 +9,7 @@
       parameter (m1=12)
 
       common/constants/zero,pi
-      CHARACTER (LEN = 400) ichar
+      CHARACTER (LEN = 400) ich
       CHARACTER (LEN = 400) nmOut 
       character title*30
       dimension iswm(m1), angm(m1)
@@ -18,26 +18,23 @@
       pi= 3.141592654
       frames = 1000
 
-      call getData (title)
-      call trackrota (hmx,hmy,hmz,iswm,angm)
       call inveRota  (hmx,hmy,hmz,iswm,angm)
+
+c      strMDCYC = ADJUSTL(strMDCYC)
+C      strSCFCYC = ADJUSTL(strSCFCYC)
 
       DO i = 1, frames
          
-         WRITE(ichar,*) i 
-         nmOut = TRIM('/home/toshiba/Frame/'//TRIM(ichar)//'.xyz')
+         WRITE(ich,*) i 
+         nmOut = TRIM('/home/assusadmin2/Frame/'//TRIM(ich)//'.xyz')
          OPEN(81,FILE=TRIM(nmOut),STATUS='unknown')
 
-      END DO ! <-----------------
+         call getData (nmOut)
+         call trackrota (hmx,hmy,hmz,iswm,angm)
 
+      END DO  
 
-      write (*,*)
-      write (*,*), "input file= ", title
-      write (*,*), "output file= zzout"
-      write (*,*), "the run is finished"
-      write (*,*)
-
-      stop
+      STOP
       end
 * *********************************
 * get mol info and put it in a common space
@@ -53,14 +50,19 @@
 
       character name1*4, name2*4, title*30
 
-      print*
-      write (*,*) "give inputfile"
-      read*, title
+c      print*
+c      write (*,*) "give inputfile"
+c      read*, title
 
-      write (*,*) "give the 3 atoms to work with"
-      read*, i1, i2, i3
+c      write (*,*) "give the 3 atoms to work with"
+c      read*, i1, i2, i3
 
-      open (unit=10,file=title,status='unknown')
+      i1 = 11;
+      i2 = 7;
+      i3 = 1;
+
+
+C     open (unit=10,file=title,status='unknown')
 
 * --------------------
 * read atoms of the molecule
@@ -148,7 +150,7 @@ c     read (10,*)  name1(j), x0(j), y0(j), z0(j), den(j)
 * put atom 1 in the origin, atom 2 in the
 * X-axis and atom 3 in the (+X,+Y) plane
 * *************************************
-      subroutine trackrota (hmx,hmy,hmz,iswm,angm)
+      subroutine trackrota (hmx,hmy,hmz,iswm,angm, ich)
       implicit double precision (a-h,o-z)
       parameter (m1=10000, m2=12)
 
