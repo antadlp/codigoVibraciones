@@ -2,7 +2,7 @@ function mallaVer007
 
 close all
 clear all
-filename = 'frame1.dat';
+filename = 'frameR1.dat';
 %filename = 'zzout2.dat';
 XYZFile = importdata(filename);
 format short e
@@ -413,7 +413,7 @@ namefile = strcat('horizontales', '8');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor08)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor08(i,1), arrHor08(i, 2), MA(listaHor08(i), 3));
+   arrHor08(i,1), arrHor08(i, 2), listaHor08(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -443,7 +443,7 @@ namefile = strcat('horizontales', '9');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor09)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor09(i,1), arrHor09(i, 2), MA(listaHor09(i), 3));
+   arrHor09(i,1), arrHor09(i, 2), listaHor09(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -471,7 +471,7 @@ namefile = strcat('horizontales', '10');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor10)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor10(i,1), arrHor10(i, 2), MA(listaHor10(i), 3));
+   arrHor10(i,1), arrHor10(i, 2), listaHor10(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -500,7 +500,7 @@ namefile = strcat('horizontales', '11');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor11)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor11(i,1), arrHor11(i, 2), MA(listaHor11(i), 3));
+   arrHor11(i,1), arrHor11(i, 2), listaHor11(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -530,7 +530,7 @@ namefile = strcat('horizontales', '12');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor12)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor12(i,1), arrHor12(i, 2), MA(listaHor12(i), 3));
+   arrHor12(i,1), arrHor12(i, 2), listaHor12(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -558,7 +558,7 @@ namefile = strcat('horizontales', '13');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor13)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor13(i,1), arrHor13(i, 2), MA(listaHor13(i), 3));
+   arrHor13(i,1), arrHor13(i, 2), listaHor13(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -588,7 +588,7 @@ namefile = strcat('verticales', '1');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert01)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert01(i,1), arrVert01(i, 2), MA(listaVert01(i), 3));
+   arrVert01(i,1), arrVert01(i, 2), listaVert01(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -616,7 +616,7 @@ namefile = strcat('verticales', '2');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert02)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert02(i,1), arrVert02(i, 2), MA(listaVert02(i), 3));
+   arrVert02(i,1), arrVert02(i, 2), listaVert02(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -644,7 +644,7 @@ namefile = strcat('verticales', '3');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert03)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert03(i,1), arrVert03(i, 2), MA(listaVert03(i), 3));
+   arrVert03(i,1), arrVert03(i, 2), listaVert03(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -674,7 +674,7 @@ namefile = strcat('verticales', '4');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert04)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert04(i,1), arrVert04(i, 2), MA(listaVert04(i), 3));
+   arrVert04(i,1), arrVert04(i, 2), listaVert04(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -702,7 +702,7 @@ namefile = strcat('verticales', '5');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert05)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert05(i,1), arrVert05(i, 2), MA(listaVert05(i), 3));
+   arrVert05(i,1), arrVert05(i, 2), listaVert05(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -731,7 +731,7 @@ namefile = strcat('verticales', '6');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert06)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert06(i,1), arrVert06(i, 2), MA(listaVert06(i), 3));
+   arrVert06(i,1), arrVert06(i, 2), listaVert06(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -760,7 +760,7 @@ namefile = strcat('verticales', '7');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert07)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert07(i,1), arrVert07(i, 2), MA(listaVert07(i), 3));
+   arrVert07(i,1), arrVert07(i, 2), listaVert07(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -791,7 +791,7 @@ namefile = strcat('verticales', '8');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert08)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert08(i,1), arrVert08(i, 2), MA(listaVert08(i), 3));
+   arrVert08(i,1), arrVert08(i, 2), listaVert08(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -819,7 +819,7 @@ namefile = strcat('verticales', '9');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert09)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert09(i,1), arrVert09(i, 2), MA(listaVert09(i), 3));
+   arrVert09(i,1), arrVert09(i, 2), listaVert09(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -848,7 +848,7 @@ namefile = strcat('verticales', '10');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert10)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert10(i,1), arrVert10(i, 2), MA(listaVert10(i), 3));
+   arrVert10(i,1), arrVert10(i, 2), listaVert10(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -877,7 +877,7 @@ namefile = strcat('verticales', '11');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert11)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert11(i,1), arrVert11(i, 2), MA(listaVert11(i), 3));
+   arrVert11(i,1), arrVert11(i, 2), listaVert11(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -905,7 +905,7 @@ namefile = strcat('verticales', '12');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert12)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert12(i,1), arrVert12(i, 2), MA(listaVert12(i), 3));
+   arrVert12(i,1), arrVert12(i, 2), listaVert12(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -933,7 +933,7 @@ namefile = strcat('verticales', '13');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert13)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert13(i,1), arrVert13(i, 2), MA(listaVert13(i), 3));
+   arrVert13(i,1), arrVert13(i, 2), listaVert13(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -961,7 +961,7 @@ namefile = strcat('verticales', '14');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert14)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert14(i,1), arrVert14(i, 2), MA(listaVert14(i), 3));
+   arrVert14(i,1), arrVert14(i, 2), listaVert14(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -990,7 +990,7 @@ namefile = strcat('verticales', '15');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert15)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert15(i,1), arrVert15(i, 2), MA(listaVert15(i), 3));
+   arrVert15(i,1), arrVert15(i, 2), listaVert15(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -1019,7 +1019,7 @@ namefile = strcat('verticales', '16');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert16)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert16(i,1), arrVert16(i, 2), MA(listaVert16(i), 3));
+   arrVert16(i,1), arrVert16(i, 2), listaVert16(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -1048,7 +1048,7 @@ namefile = strcat('verticales', '17');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert17)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert17(i,1), arrVert17(i, 2), MA(listaVert17(i), 3));
+   arrVert17(i,1), arrVert17(i, 2), listaVert17(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -1077,7 +1077,7 @@ namefile = strcat('verticales', '18');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert18)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert18(i,1), arrVert18(i, 2), MA(listaVert18(i), 3));
+   arrVert18(i,1), arrVert18(i, 2), listaVert18(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -1106,7 +1106,7 @@ namefile = strcat('verticales', '19');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert19)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert19(i,1), arrVert19(i, 2), MA(listaVert19(i), 3));
+   arrVert19(i,1), arrVert19(i, 2), listaVert19(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -1134,7 +1134,7 @@ namefile = strcat('verticales', '20');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert20)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert20(i,1), arrVert20(i, 2), MA(listaVert20(i), 3));
+   arrVert20(i,1), arrVert20(i, 2), listaVert20(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -1163,7 +1163,7 @@ namefile = strcat('verticales', '21');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaVert21)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrVert21(i,1), arrVert21(i, 2), MA(listaVert21(i), 3));
+   arrVert21(i,1), arrVert21(i, 2), listaVert21(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -1256,8 +1256,11 @@ for i=2:length(horizontalesL)
    filename = s;
    Ahr = importdata(filename);
 
+   filename = 'frameR1.dat';
+   zframe = importdata(filename);
+
    toSpl(:,1) = Ahr(:,1);
-   toSpl(:,2) = Ahr(:,3);
+   toSpl(:,2) = zframe(Ahr(:,3),3);
    
    if (Ahr(1,1) > xnMA(1))
 
@@ -1274,7 +1277,7 @@ for i=2:length(horizontalesL)
       for j=jj:(jj + length(Ahr(:,1)) - 1)
 
          tAhr(j,1) = Ahr(ll,1);
-         tAhr(j,2) = Ahr(ll,3);
+         tAhr(j,2) = toSpl(ll,2);
          ll = ll + 1;
       
       end
@@ -1339,6 +1342,7 @@ end
 %plot(xnMA, interHor(2,:))
 %
 
+clear toSpl;
 for i=1:length(verticalesL)
 %for i=2:3
 
@@ -1357,9 +1361,14 @@ for i=1:length(verticalesL)
    Avt(:,2) = floor(Avt(:,2)*10000)/10000;
    ynMA = floor(ynMA*10000)/10000;
 
+ 
+
+   filename = 'frameR1.dat';
+   zframe = importdata(filename);
+
    toSpl(:,1) = Avt(:,2);
-   toSpl(:,2) = Avt(:,3);
-   
+   toSpl(:,2) = zframe(Avt(:,3),3);
+
    if (Avt(1,2) > ynMA(1))
 
       [ii jj] = min(abs(ynMA - Avt(1,2)));
@@ -1375,7 +1384,7 @@ for i=1:length(verticalesL)
       for j=jj:(jj + length(Avt(:,2)) - 1)
 
          tAvt(j,1) = Avt(ll,2);
-         tAvt(j,2) = Avt(ll,3);
+         tAvt(j,2) = toSpl(ll,2);
          ll = ll + 1;
       
       end
