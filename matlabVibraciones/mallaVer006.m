@@ -2,7 +2,8 @@ function [Xpol Ypol inter2] = mallaVer006
 
 close all
 clear all
-filename = 'frame-001-001.dat';
+filename = 'frame1.dat';
+%filename = 'frame-001-001.dat';
 %filename = 'zzout2.dat';
 XYZFile = importdata(filename);
 format short e

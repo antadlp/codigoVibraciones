@@ -2,7 +2,7 @@ function mallaVer007
 
 close all
 clear all
-filename = 'frameR1.dat';
+filename = 'frame1.dat';
 %filename = 'zzout2.dat';
 XYZFile = importdata(filename);
 format short e
@@ -98,17 +98,6 @@ for l=1:length(X)
       end
    end
 end
-
-
-
-
-
-
-
-
-
-
-
 
 
 H11 = [MA(11, 1) MA(11, 2) MA(11, 3)];
@@ -250,7 +239,7 @@ namefile = strcat('horizontales', '2');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor02)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor02(i,1), arrHor02(i, 2), MA(listaHor02(i), 3));
+   arrHor02(i,1), arrHor02(i, 2), listaHor02(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -281,7 +270,7 @@ namefile = strcat('horizontales', '3');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor03)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor03(i,1), arrHor03(i, 2), MA(listaHor03(i), 3));
+   arrHor03(i,1), arrHor03(i, 2), listaHor03(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -308,7 +297,7 @@ namefile = strcat('horizontales', '4');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor04)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor04(i,1), arrHor04(i, 2), MA(listaHor04(i), 3));
+   arrHor04(i,1), arrHor04(i, 2), listaHor04(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -336,7 +325,7 @@ namefile = strcat('horizontales', '5');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor05)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor05(i,1), arrHor05(i, 2), MA(listaHor05(i), 3));
+   arrHor05(i,1), arrHor05(i, 2), listaHor05(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
