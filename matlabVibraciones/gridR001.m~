@@ -1,4 +1,4 @@
-function frames = gridR001
+function F = gridR001
 
 filename = 'outRotadosGridR';
 datosAll = importdata(filename);
@@ -10,24 +10,57 @@ for i=1:1000
 
 end
 
-namefile = 'allFFT2.dat';
+namefile = 'FFT2-REAL.dat';
+namefile2 = 'FFT2-IMAGINARIO.dat';
 fileID = fopen(namefile, 'w');
-for i=1:1000
+fileID2 = fopen(namefile2, 'w');
+for i=1:10
 
    s = strcat('  FRAME_',int2str(i));
+
    fprintf(fileID, s);
    fprintf(fileID, '\n');
+
+   fprintf(fileID2, s);
+   fprintf(fileID2, '\n');
+
 
    matrizFrames(:,:,i) = reshape(frames(:,i), [23, 8]);
    F = fft2(matrizFrames(:,:,i));
 
       for j=1:23
+
+         z1 = real(F(j,1));
+         z2 = real(F(j,2));
+         z3 = real(F(j,3));
+         z4 = real(F(j,4));
+         z5 = real(F(j,5));
+         z6 = real(F(j,6));
+         z7 = real(F(j,7));
+         z8 = real(F(j,8));
+
          fprintf(fileID, '%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f', ...
-         F(j,1),F(j,2),F(j,3),F(j,4),F(j,5),F(j,6),F(j,7),F(j,8));
+         z1, z2, z3, z4, z5, z6, z7, z8);
+
+
+         z1 = imag(F(j,1));
+         z2 = imag(F(j,2));
+         z3 = imag(F(j,3));
+         z4 = imag(F(j,4));
+         z5 = imag(F(j,5));
+         z6 = imag(F(j,6));
+         z7 = imag(F(j,7));
+         z8 = imag(F(j,8));
+
+         fprintf(fileID2, '%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f', ...
+         z1, z2, z3, z4, z5, z6, z7, z8);
+
          fprintf(fileID, '\n');
+         fprintf(fileID2, '\n');
       end
    
    fprintf(fileID, '\n');
+   fprintf(fileID2, '\n');
 
 end
 

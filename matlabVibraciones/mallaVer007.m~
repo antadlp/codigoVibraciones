@@ -354,7 +354,7 @@ namefile = strcat('horizontales', '6');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor06)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor06(i,1), arrHor06(i, 2), MA(listaHor06(i), 3));
+   arrHor06(i,1), arrHor06(i, 2), listaHor06(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
@@ -384,7 +384,7 @@ namefile = strcat('horizontales', '7');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor07)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
-   arrHor07(i,1), arrHor07(i, 2), MA(listaHor07(i), 3));
+   arrHor07(i,1), arrHor07(i, 2), listaHor07(i));
 end
 fprintf(fileID, '\n');
 fclose(fileID);
