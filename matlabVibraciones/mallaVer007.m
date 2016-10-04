@@ -1183,6 +1183,13 @@ A2 = [arrVert21(length(arrVert21), 1) arrVert21(length(arrVert21), 2)];
 plot(xY21t, lineaY21t)
 
 
+namefile = 'nMA';
+fileID = fopen(namefile, 'w');
+for i=1:length(nMA(:,1))
+   fprintf(fileID, '%f\t %f\t %f\t\n', nMA(i,1),...
+   nMA(i,2), nMA(i,3));
+end
+
 
 
 
