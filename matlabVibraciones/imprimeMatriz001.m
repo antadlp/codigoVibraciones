@@ -23,7 +23,7 @@ for i=1:3
 
    for j = 1:length(A(:,1,1))
 
-      fprintf(fileID, '%f\t', A(j,:,i));
+      fprintf(fileID, '%f   ', A(j,:,i));
       fprintf(fileID, '\n');
    end
 end

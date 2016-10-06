@@ -1,5 +1,5 @@
 %function AnimacionD1(t,x,p)
-function animacionPrueba001
+function animacionMalla001
 
 
 %[m n] = size(p);

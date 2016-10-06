@@ -21,10 +21,10 @@ y = min(ynMA):1/fs:max(ynMA);
 [Xpol Ypol] = meshgrid(x,y);
 
 
-for j=1:1000
+for al=482:1000
 
 
-   s = strcat('/home/toshiba/out002/frameR', int2str(j), '.dat');
+   s = strcat('/home/toshiba/out002/frameR', int2str(al), '.dat');
    filename = s;
    zframe = importdata(filename);
 
@@ -223,37 +223,74 @@ for j=1:1000
    end
    
      
-   s = strcat('interTotal', int2str(j), '.dat');
    %filename = s;
    %fileID = fopen(filename, 'w');
    
    for ii=1:length(xnMA)
       for jj=1:length(ynMA)
    
-         interTotal(ii,jj,j) = (interHor(jj,ii) + interVert(ii,jj))/2;
+         interTotal(ii,jj,al) = (interHor(jj,ii) + interVert(ii,jj))/2;
    
       end
    end
    
-   inter2(:,:,j) = interp2(XNMA,YNMA, interTotal(:,:,j)',Xpol,Ypol);
-   [x2, y2, Pf2(j,:), Pf(:,:,j)] = analisisfft001(fs, inter2(:,:,j), Xpol, Ypol, s);
+   inter2(:,:,al) = interp2(XNMA,YNMA, interTotal(:,:,al)',Xpol,Ypol);
+
+   al
+   s2 = '/home/toshiba/out003/mallaInter';
+   filename2 = strcat(s2, int2str(al));
+   fileID2 = fopen(filename2, 'w');
+
+   for cc = 1:length(inter2(:,1,1))
+
+      fprintf(fileID2, '%f  ', inter2(cc,:,al));
+      fprintf(fileID2, '\n');
+
+   end
+
+   fclose(fileID2);
+
+
+
+%   [x2, y2, Pf2(j,:), Pf(:,:,j)] = analisisfft001(fs, inter2(:,:,j), Xpol, Ypol, s);
 
 end
 
+%t = 1:100;
+%for i=1:length(t)
+%
+%   s2 = '/home/toshiba/out003/mallaInter';
+%   filename2 = strcat(s2, int2str(i));
+%   Zp(:,:,i) = importdata(filename2);
+%
+%end
+%
+%Z = -1*Zp(:,:,1);
+%h = surf(Xpol,Ypol,Z, 'ZDataSource', 'Z', 'EdgeColor', 'none');
+%axis([-inf inf -inf inf -1 1])
+%hold on
+%
+%for m=2:length(t)
+%    Z = -1*Zp(:,:,m);
+%    refreshdata(h,'caller')
+%    drawnow; 
+%    pause(.15)
+%end
+%
+%
 
-
-dummie = Pf2;
-for i=1:10
-   
-   [aa bb cc] = maxValueMatrix2(dummie);
-   PfT(i,:) = Pf(cc,:,bb);
-   dummie(bb, cc) = -inf;
-
-end
-
-PfT
-
-
+%dummie = Pf2;
+%for i=1:10
+%   
+%   [aa bb cc] = maxValueMatrix2(dummie);
+%   PfT(i,:) = Pf(cc,:,bb);
+%   dummie(bb, cc) = -inf;
+%
+%end
+%
+%PfT
+%
+%
 
    
    
