@@ -65,7 +65,7 @@
                DO u=1,N
                   DO v=1,N
                      
-                     FRZ(i,j) = FRZ(i,j) + (1/(N*N))*FZ(u,v)            &
+                     FRZ(i,j) = FRZ(i,j) + (1/(REAL(N*N,8)))*FZ(u,v)    &            
                      *(COS(2*pi*(u-1)*(i-1)/N + 2*pi*(v-1)*(j-1)/N)     &
                      +im*SIN(2*pi*(u-1)*(i-1)/N + 2*pi*(v-1)*(j-1)/N))  
                   
