@@ -18,7 +18,7 @@
 
       zero= 0.d0
       pi= 3.141592654
-      frames = 1000 
+      frames = 5000 
 
 c      strMDCYC = ADJUSTL(strMDCYC)
 C      strSCFCYC = ADJUSTL(strSCFCYC)
@@ -69,7 +69,7 @@ c      read*, i1, i2, i3
       
       WRITE(ich,*) i 
       ich = ADJUSTL(ich)
-      nmIn = TRIM('/home/toshiba/in001/frame'//TRIM(ich)//'.xyz')
+      nmIn = TRIM('/home/assusadmin2/in002/frame'//TRIM(ich)//'.xyz')
       OPEN(82,FILE=TRIM(nmIn),STATUS='OLD')
 !     PRINT*, nmIn
 !     PRINT*, ich
@@ -175,7 +175,7 @@ c     read (10,*)  name1(j), x0(j), y0(j), z0(j), den(j)
       CHARACTER (LEN = 400) ich 
 
       ich = ADJUSTL(ich)
-      nmOut = TRIM('/home/toshiba/out001/frameR'//TRIM(ich)//'.xyz')
+      nmOut = TRIM('/home/assusadmin2/out002/frameR'//TRIM(ich)//'.xyz')
 !     PRINT*, nmOut
       OPEN(81,FILE=TRIM(nmOut),STATUS='NEW')
 

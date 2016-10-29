@@ -62,8 +62,10 @@ for i=1:M
    for j=1:N
       if (Z1P(i,j) >= 0.5*maxP)
 %         y(l, :) = [x2(i) y2(j)];
-         yx(l) = x2(i);
-         yy(l) = y2(j);
+%         yx(l) = x2(i);
+%         yy(l) = y2(j);
+         yx(l) = (2*pi*(i-1)/M)/(10^15);
+         yy(l) = (2*pi*(j-1)/N)/(10^15);
          l = l + 1;
       end
    end

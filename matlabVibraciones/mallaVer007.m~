@@ -2,7 +2,7 @@ function mallaVer007
 
 close all
 clear all
-filename = 'frameR1.dat';
+filename = 'frame1.dat';
 %filename = 'zzout2.dat';
 XYZFile = importdata(filename);
 format short e
@@ -1183,6 +1183,13 @@ A2 = [arrVert21(length(arrVert21), 1) arrVert21(length(arrVert21), 2)];
 plot(xY21t, lineaY21t)
 
 
+namefile = 'nMA';
+fileID = fopen(namefile, 'w');
+for i=1:length(nMA(:,1))
+   fprintf(fileID, '%f\t %f\t %f\t\n', nMA(i,1),...
+   nMA(i,2), nMA(i,3));
+end
+
 
 
 
@@ -1256,7 +1263,7 @@ for i=2:length(horizontalesL)
    filename = s;
    Ahr = importdata(filename);
 
-   filename = 'frameR1.dat';
+   filename = 'frame1.dat';
    zframe = importdata(filename);
 
    toSpl(:,1) = Ahr(:,1);

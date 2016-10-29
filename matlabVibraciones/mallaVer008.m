@@ -21,10 +21,10 @@ y = min(ynMA):1/fs:max(ynMA);
 [Xpol Ypol] = meshgrid(x,y);
 
 
-for al=482:1000
+for al=1:5000
 
 
-   s = strcat('/home/toshiba/out002/frameR', int2str(al), '.dat');
+   s = strcat('/home/toshiba/out003/frameR', int2str(al), '.dat');
    filename = s;
    zframe = importdata(filename);
 
