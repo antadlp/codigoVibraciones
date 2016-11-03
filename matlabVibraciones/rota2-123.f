@@ -69,7 +69,8 @@ c      read*, i1, i2, i3
       
       WRITE(ich,*) i 
       ich = ADJUSTL(ich)
-      nmIn = TRIM('/home/toshiba/in002/frame'//TRIM(ich)//'.xyz')
+      nmIn = TRIM('/home/assusadmin2/separados500/frame'//TRIM(ich)
+     & //'.xyz')
       OPEN(82,FILE=TRIM(nmIn),STATUS='OLD')
 !     PRINT*, nmIn
 !     PRINT*, ich
@@ -175,7 +176,8 @@ c     read (10,*)  name1(j), x0(j), y0(j), z0(j), den(j)
       CHARACTER (LEN = 400) ich 
 
       ich = ADJUSTL(ich)
-      nmOut = TRIM('/home/toshiba/out002/frameR'//TRIM(ich)//'.xyz')
+      nmOut = TRIM('/home/assusadmin2/rotados500/frameR'
+     & //TRIM(ich)//'.xyz')
 !     PRINT*, nmOut
       OPEN(81,FILE=TRIM(nmOut),STATUS='NEW')
 
