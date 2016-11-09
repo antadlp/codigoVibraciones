@@ -26,6 +26,7 @@ normal = cross(PQ, PR);
 
 
 
+
 nAtoms = 142;
 for i=1:nAtoms
    

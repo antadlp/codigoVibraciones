@@ -37,23 +37,29 @@ end
 atoms = importdata('char-GP.dat');
 aGrid = importdata('mallanMA.dat');
 
+fileID = 'f1-alturas-mil.xyz';
+fileID2 = 'f1-alturas-mil.dat';
+
 for i=1:(nAtoms)
 
    if (atoms{i}=='H')
       
-      fprintf(fileID, '%c  %f  %f  %f\n', B{i}, C(i,1), C(i,2), 0.00);
+      fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, C(i,1), C(i,2), 0.00);
       fprintf(fileID2, '%f  %f  %f\n', C(i,1), C(i,2), 0.00);
    
    else
       
-      j = i - 28; %Suponiendo que todos los movies tienen 1-28 atomos H
-      fprintf(fileID, '%c  %f  %f  %f\n', B{i}, A(A2(j),2), A(A2(j),3), 0.00);
-      fprintf(fileID2, '%f  %f  %f\n', A(A2(j),2), A(A2(j),3), 0.00);
+      j = i - 28; % !!Suponiendo que todos los movies tienen 1-28 atomos H !!
+      fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2),...
+      Zd(i));
+
+      fprintf(fileID2, '%f  %f  %f\n', aGrid(i,1), aGrid(i,2), Zd(i));
    end
 
 end
 
 fclose(fileID);
+fclose(fileID2);
 
 
 
