@@ -8,7 +8,7 @@ function alturasZ001
 
 close all
 clear all
-filename = 'frame1-mil.dat';
+filename = 'frame250-mil.dat';
 
 XYZFile = importdata(filename);
 format short e
@@ -50,43 +50,34 @@ limitXDer = xmax + extraLimit2;
 limitYArr = ymax + extraLimit2;
 limitYAbj = ymin - extraLimit2;
 
-P = H15;
-Q = H14;
-R = H04;
-PQ = P - Q;
-PR = P - R;
-normal = cross(PQ, PR);
-
 xp = limitXIzq:01:limitXDer;
 yp = limitYAbj:01:limitYArr;
 
 [Xp Yp] = meshgrid(xp, yp);
-[Zp N] = makePlano001(Xp, Yp, H15, normal');
-
-makePlano001(X, Y, P, N)
-
-
+[Zp N] = makePlano001(Xp, Yp, P, normal');
 
 nAtoms = 142;
 for i=1:nAtoms
    
-   Zp = MA(i,3);
-   Zd(i) = distanciaPuntoPlano(Zp, normal);
+   Zp = [MA(i,1) MA(i,2) MA(i,3)];
+   Zd(i) = distanciaPuntoPlano(Zp, N);
 
 end
 
 atoms = importdata('char-GP.dat');
 aGrid = importdata('mallanMA.dat');
 
-fileID = 'f1-alturas-mil.xyz';
-fileID2 = 'f1-alturas-mil.dat';
+fileID = fopen('f1-alturas-mil.xyz', 'w');
+fileID2 = fopen('f1-alturas-mil.dat', 'w');
 
+fprintf(fileID, '%s\n', int2str(nAtoms));
+fprintf(fileID, '%s\t%d\n', 'frame', 1);
 for i=1:(nAtoms)
 
    if (atoms{i}=='H')
       
-      fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, C(i,1), C(i,2), 0.00);
-      fprintf(fileID2, '%f  %f  %f\n', C(i,1), C(i,2), 0.00);
+      fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2), 0.00);
+      fprintf(fileID2, '%f  %f  %f\n', aGrid(i,1), aGrid(i,2), 0.00);
    
    else
       
@@ -99,8 +90,7 @@ for i=1:(nAtoms)
 
 end
 
-fclose(fileID);
-fclose(fileID2);
+fclose('all')
 
 
 
