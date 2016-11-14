@@ -9,6 +9,9 @@ function alturasZ002
 close all
 clear all
 
+filename = '/home/toshiba/movie-mil-zz.xyz';
+fileID3 = fopen(filename, 'w');
+
 for j = 1:5
    
    s = '/home/toshiba/separados-mil-dat/'
@@ -70,24 +73,31 @@ for j = 1:5
    atoms = importdata('char-GP.dat');
    aGrid = importdata('mallanMA.dat');
 
-   s = '/home/toshiba/separados-mil-zz/';
-   filename1 = strcat(s,frame,int2str(j),'.dat');
-   filename2 = strcat(s,frame,int2str(j),'.dat');
+   s = '/home/toshiba/separados-mil-zz-dat/';
+   s2 = '/home/toshiba/separados-mil-zz-xyz/';
+   filename1 = strcat(s,'frame',int2str(j),'.xyz');
+   filename2 = strcat(s2,'frame',int2str(j),'.dat');
    fileID = fopen(filename1, 'w');
    fileID2 = fopen(filename2, 'w');
 
    fprintf(fileID, '%s\n', int2str(nAtoms));
-   fprintf(fileID, '%s\t%d\n', 'frame', 1);
+   fprintf(fileID, '%s\t%d\n', 'frame', int2str(j));
+   fprintf(fileID3, '%s\n', int2str(nAtoms));
+   fprintf(fileID3, '%s\t%d\n', 'frame', int2str(j));
    for i=1:(nAtoms)
 
       if (atoms{i}=='H')
          
          fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2), 0.00);
+         fprintf(fileID3, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2), 0.00);
          fprintf(fileID2, '%f  %f  %f\n', aGrid(i,1), aGrid(i,2), 0.00);
       
       else
          
          fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2),...
+         Zd(i));
+ 
+         fprintf(fileID3, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2),...
          Zd(i));
 
          fprintf(fileID2, '%f  %f  %f\n', aGrid(i,1), aGrid(i,2), Zd(i));
