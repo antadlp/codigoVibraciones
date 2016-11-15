@@ -12,7 +12,7 @@ clear all
 filename = '/home/toshiba/movie-mil-zz.xyz';
 fileID3 = fopen(filename, 'w');
 
-for j = 1:5
+for j = 1:1000
    
    s = '/home/toshiba/separados-mil-dat/'
    filename = strcat(s,'frame',int2str(j),'.dat');
@@ -73,17 +73,17 @@ for j = 1:5
    atoms = importdata('char-GP.dat');
    aGrid = importdata('mallanMA.dat');
 
-   s = '/home/toshiba/separados-mil-zz-dat/';
-   s2 = '/home/toshiba/separados-mil-zz-xyz/';
+   s = '/home/toshiba/separados-mil-zz-xyz/';
+   s2 = '/home/toshiba/separados-mil-zz-dat/';
    filename1 = strcat(s,'frame',int2str(j),'.xyz');
    filename2 = strcat(s2,'frame',int2str(j),'.dat');
    fileID = fopen(filename1, 'w');
    fileID2 = fopen(filename2, 'w');
 
    fprintf(fileID, '%s\n', int2str(nAtoms));
-   fprintf(fileID, '%s\t%d\n', 'frame', int2str(j));
+   fprintf(fileID, '%s\t%d\n', 'frame', j);
    fprintf(fileID3, '%s\n', int2str(nAtoms));
-   fprintf(fileID3, '%s\t%d\n', 'frame', int2str(j));
+   fprintf(fileID3, '%s\t%d\n', 'frame', j);
    for i=1:(nAtoms)
 
       if (atoms{i}=='H')
@@ -105,10 +105,12 @@ for j = 1:5
 
    end
 
-   fclose('all')
+   j
+
 
 end
 
+   fclose('all')
 
 
 

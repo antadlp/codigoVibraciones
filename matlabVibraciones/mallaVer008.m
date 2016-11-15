@@ -24,7 +24,7 @@ y = min(ynMA):1/fs:max(ynMA);
 for al=1:5000
 
 
-   s = strcat('/home/toshiba/out003/frameR', int2str(al), '.dat');
+   s = strcat('/home/toshiba/separados-mil-zz-dat/frame', int2str(al), '.dat');
    filename = s;
    zframe = importdata(filename);
 
@@ -237,7 +237,7 @@ for al=1:5000
    inter2(:,:,al) = interp2(XNMA,YNMA, interTotal(:,:,al)',Xpol,Ypol);
 
    al
-   s2 = '/home/toshiba/out003/mallaInter';
+   s2 = '/home/toshiba/mallaInter-mil/frame';
    filename2 = strcat(s2, int2str(al));
    fileID2 = fopen(filename2, 'w');
 
