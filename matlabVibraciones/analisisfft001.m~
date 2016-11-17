@@ -32,8 +32,9 @@ Sc4 = strcat('Zc4-', S);
 %plot(Yc4, Zc4)
 
 Z1f = fft2(Z1);
-Z1sh = fftshift(Z1f);
-Z1P = Z1sh.*conj(Z1sh);
+%Z1sh = fftshift(Z1f);
+%Z1P = Z1sh.*conj(Z1sh);
+Z1P = Z1f.*conj(Z1sh);
 x2 = (-M/2:M/2-1)*(fs/M);
 length(x2);
 y2 = (-N/2:N/2-1)*(fs/N);

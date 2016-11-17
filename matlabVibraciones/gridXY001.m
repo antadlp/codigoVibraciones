@@ -247,7 +247,7 @@ grid on
 listaHor03 = crossLine2dAtom(MA, xX03, lineaX03, r, ep, 1);
 arrHor03 = arrangeAtomsLine(xX03, lineaX03, MA, listaHor03, 0.001);
 
-namefile = strcat(sVert, '3');
+namefile = strcat(sHor, '3');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor03)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -274,7 +274,7 @@ plot(xX03t, lineaX03t)
 listaHor04 = crossLine2dAtom(MA, xX04, lineaX04, r, ep, 1);
 arrHor04 = arrangeAtomsLine(xX04, lineaX04, MA, listaHor04, 0.001);
 
-namefile = strcat(sVert, '4');
+namefile = strcat(sHor, '4');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor04)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -302,7 +302,7 @@ plot(xX04t, lineaX04t)
 listaHor05 = crossLine2dAtom(MA, xX05, lineaX05, r, ep, 1);
 arrHor05 = arrangeAtomsLine(xX05, lineaX05, MA, listaHor05, 0.001);
 
-namefile = strcat(sVert, '5');
+namefile = strcat(sHor, '5');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor05)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -331,7 +331,7 @@ plot(xX05t, lineaX05t)
 listaHor06 = crossLine2dAtom(MA, xX06, lineaX06, r, ep, 1);
 arrHor06 = arrangeAtomsLine(xX06, lineaX06, MA, listaHor06, 0.001);
 
-namefile = strcat(sVert, '6');
+namefile = strcat(sHor, '6');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor06)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -361,7 +361,7 @@ plot(xX06t, lineaX06t)
 listaHor07 = crossLine2dAtom(MA, xX07, lineaX07, r, ep, 1);
 arrHor07 = arrangeAtomsLine(xX07, lineaX07, MA, listaHor07, 0.001);
 
-namefile = strcat(sVert, '7');
+namefile = strcat(sHor, '7');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor07)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -390,7 +390,7 @@ plot(xX07t, lineaX07t)
 listaHor08 = crossLine2dAtom(MA, xX08, lineaX08, r, ep, 1);
 arrHor08 = arrangeAtomsLine(xX08, lineaX08, MA, listaHor08, 0.001);
 
-namefile = strcat(sVert, '8');
+namefile = strcat(sHor, '8');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor08)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -420,7 +420,7 @@ plot(xX08t, lineaX08t)
 listaHor09 = crossLine2dAtom(MA, xX09, lineaX09, r, ep, 1);
 arrHor09 = arrangeAtomsLine(xX09, lineaX09, MA, listaHor09, 0.001);
 
-namefile = strcat(sVert, '9');
+namefile = strcat(sHor, '9');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor09)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -448,7 +448,7 @@ plot(xX09t, lineaX09t)
 listaHor10 = crossLine2dAtom(MA, xX10, lineaX10, r, ep, 1);
 arrHor10 = arrangeAtomsLine(xX10, lineaX10, MA, listaHor10, 0.001);
 
-namefile = strcat(sVert, '10');
+namefile = strcat(sHor, '10');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor10)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -477,7 +477,7 @@ plot(xX10t, lineaX10t)
 listaHor11 = crossLine2dAtom(MA, xX11, lineaX11, r, ep, 1);
 arrHor11 = arrangeAtomsLine(xX11, lineaX11, MA, listaHor11, 0.001);
 
-namefile = strcat(sVert, '11');
+namefile = strcat(sHor, '11');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor11)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -507,7 +507,7 @@ plot(xX11t, lineaX11t)
 listaHor12 = crossLine2dAtom(MA, xX12, lineaX12, r, ep, 1);
 arrHor12 = arrangeAtomsLine(xX12, lineaX12, MA, listaHor12, 0.001);
 
-namefile = strcat(sVert, '12');
+namefile = strcat(sHor, '12');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor12)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -535,7 +535,7 @@ plot(xX12t, lineaX12t)
 listaHor13 = crossLine2dAtom(MA, xX13, lineaX13, r, ep, 1);
 arrHor13 = arrangeAtomsLine(xX13, lineaX13, MA, listaHor13, 0.001);
 
-namefile = strcat(sVert, '13');
+namefile = strcat(sHor, '13');
 fileID = fopen(namefile, 'w');
 for i=1:length(listaHor13)
    fprintf(fileID, '%f\t %f\t %f\t\n', ...
@@ -1164,7 +1164,7 @@ A2 = [arrVert21(length(arrVert21), 1) arrVert21(length(arrVert21), 2)];
 plot(xY21t, lineaY21t)
 
 
-namefile = 'nMA';
+namefile = 'nMA-mil.dat';
 fileID = fopen(namefile, 'w');
 for i=1:length(nMA(:,1))
    fprintf(fileID, '%f\t %f\t %f\t\n', nMA(i,1),...
@@ -1227,255 +1227,73 @@ end
 axis([limitXIzq limitXDer limitYAbj limitYArr]);
 grid on
 
+save('nMA-mil', 'nMA')
 
+%A = importdata('nMA-mil');
+A = nMA;
+B = importdata('char-mil.dat');
+C = importdata('frame1-mil-rota.dat');
 
-for i=2:length(horizontalesL)
-%for i=2:3
+fileID = fopen('mallanMA-mil.xyz','w');
+fileID2 = fopen('mallanMA-mil.dat','w');
+nAtoms = 142;
 
-%   Ahr =0;
-%   s = 0;
-%   s2 = 0;
-%   tAhr = 0;
-%   toSpl = 0;
-%   clear Ahr, s, s2, tAhr, toSpl;
+[A1 A2] = unique(A(:,1));
 
-   s = strcat(sVert, int2str(i));
-   s2 = strcat('splineHor', i);
-   filename = s;
-   Ahr = importdata(filename);
+fprintf(fileID, '%s\n', int2str(nAtoms));
+fprintf(fileID, '%s\t%d\n', 'frame', 1);
 
-   filename = 'frame1-mil-rota.dat';
-   zframe = importdata(filename);
+for i=1:(nAtoms)
 
-   toSpl(:,1) = Ahr(:,1);
-   toSpl(:,2) = zframe(Ahr(:,3),3);
+   if (B{i}=='H')
+      
+      fprintf(fileID, '%c  %f  %f  %f\n', B{i}, C(i,1), C(i,2), 0.00);
+      fprintf(fileID2, '%f  %f  %f\n', C(i,1), C(i,2), 0.00);
+
    
-   if (Ahr(1,1) > xnMA(1))
+   else
+      j = i - 28;
 
-      [ii jj] = min(abs(xnMA - Ahr(1,1)));
-
-      for j=1:(jj-1)
-
-         tAhr(j,1) = xnMA(j);
-         tAhr(j,2) = 0;
-
-      end
-
-      ll = 1;
-      for j=jj:(jj + length(Ahr(:,1)) - 1)
-
-         tAhr(j,1) = Ahr(ll,1);
-         tAhr(j,2) = toSpl(ll,2);
-         ll = ll + 1;
-      
-      end
-
+      fprintf(fileID, '%c  %f  %f  %f\n', B{i}, A(A2(j),2), A(A2(j),3), 0.00);
+      fprintf(fileID2, '%f  %f  %f\n', A(A2(j),2), A(A2(j),3), 0.00);
    end
-
-   if ( Ahr(length(Ahr(:,1)), 1) < xnMA(length(xnMA)) )
-
-      [ii jj] = min(abs(xnMA - Ahr(length(Ahr(:,1)),1)));
-
-      rr = length(xnMA) - jj;
-
-      tt = length(tAhr(:,1));
-      tt = tt + 1;
-      ss = 1;
-      for q=tt:(tt + rr - 1)
-
-         tAhr(q,1) = xnMA(jj + ss);
-         tAhr(q,2) = 0.0;
-         ss = ss + 1;
-      end
-
-   end
-
-   if (exist('tAhr'))
-
-      toSpl = tAhr;
-
-   end
-
-%   figure('Name', 'vertoSplit')
-%   plot(toSpl(:,1), toSpl(:,2), 'r')
-%   hold on
-%   plot(toSpl(:,1), toSpl(:,2), 'ro')
-%   grid on
-%   plot(xnMA, 0, '-go')
-%   plot(Ahr(:,1), Ahr(:,3))
-%
-%%   interHor(i, :) = spline(toSpl(:,1), toSpl(:,2), xnMA);
-   interHor(i, :) = pchip(toSpl(:,1), toSpl(:,2), xnMA);
-%
-%   plot(xnMA, interHor(i,:), 'ko--')
-
-   clear toSpl;
-
-   if (exist('tAhr'))
-      clear tAhr;
-   end
-
-
 
 end
 
-%
-%s = strcat('horizontales', int2str(2));
-%filename = s;
-%Ahr = importdata(filename);
-%figure('Name', 'verSpliness')
-%plot(Ahr(:,1), Ahr(:,3), 'ro')
-%hold on
-%grid on
-%plot(xnMA, interHor(2,:))
-%
+fclose('all');
 
-clear toSpl;
-for i=1:length(verticalesL)
-%for i=2:3
+% obteniendo el mapeo de frames originales con el frame nMA
 
-%   Ahr =0;
-%   s = 0;
-%   s2 = 0;
-%   tAhr = 0;
-%   toSpl = 0;
-%   clear Ahr, s, s2, tAhr, toSpl;
+D = importdata('mallanMA-mil.dat');
 
-   s = strcat(sVert, int2str(i));
-   s2 = strcat('splineVert', i);
-   filename = s;
-   Avt = importdata(filename);
+fileMap = fopen('mapnMA-mil.dat','w');
+for i=1:nAtoms
 
-   Avt(:,2) = floor(Avt(:,2)*10000)/10000;
-   ynMA = floor(ynMA*10000)/10000;
+   F = abs(X-D(i,1));
+   G = abs(Y-D(i,2));
 
- 
+   H = abs(F + G);
 
-   filename = 'frameR1.dat';
-   zframe = importdata(filename);
+   [I J] = min(H);
 
-   toSpl(:,1) = Avt(:,2);
-   toSpl(:,2) = zframe(Avt(:,3),3);
-
-   if (Avt(1,2) > ynMA(1))
-
-      [ii jj] = min(abs(ynMA - Avt(1,2)));
-
-      for j=1:(jj-1)
-
-         tAvt(j,1) = ynMA(j);
-         tAvt(j,2) = 0;
-
-      end
-
-      ll = 1;
-      for j=jj:(jj + length(Avt(:,2)) - 1)
-
-         tAvt(j,1) = Avt(ll,2);
-         tAvt(j,2) = toSpl(ll,2);
-         ll = ll + 1;
-      
-      end
-
-   end
-
-   [nn mm] = size(Avt);
-
-   if (Avt(nn, 2) < ynMA(length(ynMA)))
-
-      [ii jj] = min(abs(ynMA - Avt(length(Avt(:,2)),2)));
-
-      rr = length(ynMA) - jj;
-
-      tt = length(tAvt(:,1));
-      tt = tt + 1;
-      ss = 1;
-      for q=tt:(tt + rr - 1)
-
-         tAvt(q,1) = ynMA(jj + ss);
-         tAvt(q,2) = 0.0;
-         ss = ss + 1;
-      end
-
-   end
-
-   if (exist('tAvt'))
-
-      toSpl = tAvt;
-
-   end
-
-%   figure('Name', strcat('interpolVert',int2str(i)))
-%   plot(toSpl(:,1), toSpl(:,2), 'r')
-%   hold on
-%   plot(toSpl(:,1), toSpl(:,2), 'ro')
-%   grid on
-%   plot(ynMA, 0, '-go')
-%   plot(Avt(:,2), Avt(:,3))
-
-%   interHor(i, :) = spline(toSpl(:,1), toSpl(:,2), xnMA);
-   interVert(i, :) = pchip(toSpl(:,1), toSpl(:,2), ynMA);
-
-%   plot(ynMA, interVert(i,:), 'ko--')
-
-   clear toSpl;
-
-   if (exist('tAvt'))
-      clear tAvt;
-   end
-
-
+   fprintf(fileMap, '%f  %f\n', i, J);
 
 end
 
-for i=1:length(xnMA)
-   for j=1:length(ynMA)
-
-      interTotal(i,j) = (interHor(j,i) + interVert(i,j))/2;
-
-   end
-end
-
-[XNMA YNMA] = meshgrid(xnMA, ynMA);
-figure('Name', 'interPolTotal')
-surface(XNMA, YNMA, interTotal', 'EdgeColor', 'none'), view(3)
-axis([-inf inf -inf inf -2 2])
-
-figure('Name', 'interPolTotalM')
-mesh(XNMA, YNMA, interTotal')
-axis([-inf inf -inf inf -2 2])
-
-fs = 100;
-x = min(xnMA):1/fs:max(xnMA);
-y = min(ynMA):1/fs:max(ynMA);
-[Xpol Ypol] = meshgrid(x,y);
-inter2 = interp2(XNMA,YNMA,interTotal',Xpol,Ypol);
-
-figure('Name', 'inter2total')
-surface(Xpol,Ypol,inter2,'EdgeColor', 'none'), view(3)
-axis([-inf inf -inf inf -2 2])
-
-
-[v, w, vv, ww, Pf] = analisisfft001(fs, inter2, Xpol, Ypol,  'malla500');
-
-v
-w
-vv
-ww
-Pf
+fclose('all');
 
 
 
-%^^^
-%figure('Name', 'xy')
-%plot(xX03, lineaX03)
-%hold on
-%plot(xX02, lineaX02)
-%%plot([H11(1)], [H11(2)], 'o')
-%plot(X', Y', 'o')
-%plot(nMA(:,2), nMA(:,3), 'ro')
-%axis([limitXIzq limitXDer limitYAbj limitYArr]);
-%grid on
-%
+
+
+
+
+
+
+
+
+   
+
+
 
 

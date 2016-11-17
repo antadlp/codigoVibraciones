@@ -70,8 +70,9 @@ for j = 1:1000
 
    end
 
-   atoms = importdata('char-GP.dat');
-   aGrid = importdata('mallanMA.dat');
+   atoms = importdata('char-mil.dat');
+   aGrid = importdata('mallanMA-mil.dat');
+   mp = importdata('mapnMA-mil.dat');
 
    s = '/home/toshiba/separados-mil-zz-xyz/';
    s2 = '/home/toshiba/separados-mil-zz-dat/';
@@ -86,21 +87,22 @@ for j = 1:1000
    fprintf(fileID3, '%s\t%d\n', 'frame', j);
    for i=1:(nAtoms)
 
+      l = mp(i,2);
       if (atoms{i}=='H')
-         
-         fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2), 0.00);
-         fprintf(fileID3, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2), 0.00);
-         fprintf(fileID2, '%f  %f  %f\n', aGrid(i,1), aGrid(i,2), 0.00);
+
+         fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(l,1), aGrid(l,2), 0.00);
+         fprintf(fileID3, '%c  %f  %f  %f\n', atoms{i}, aGrid(l,1), aGrid(l,2), 0.00);
+         fprintf(fileID2, '%f  %f  %f\n', aGrid(l,1), aGrid(l,2), 0.00);
       
       else
          
-         fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2),...
+         fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(l,1), aGrid(l,2),...
          Zd(i));
  
-         fprintf(fileID3, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2),...
+         fprintf(fileID3, '%c  %f  %f  %f\n', atoms{i}, aGrid(l,1), aGrid(l,2),...
          Zd(i));
 
-         fprintf(fileID2, '%f  %f  %f\n', aGrid(i,1), aGrid(i,2), Zd(i));
+         fprintf(fileID2, '%f  %f  %f\n', aGrid(l,1), aGrid(l,2), Zd(i));
       end
 
    end
