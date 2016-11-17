@@ -114,7 +114,6 @@ for i=1:numFreq
    Pf2(i) = aa;
    dummie(bb, cc) = -inf;
 
-end
 
 
 
