@@ -1,7 +1,7 @@
 %function AnimacionD1(t,x,p)
 function animacionMalla001
 
-nMA = importdata('nMA-mil.dat');
+nMA = importdata('nMA-B12N12a.dat');
 
 xnMA = nMA(:,2);
 ynMA = nMA(:,3);
@@ -16,8 +16,8 @@ y = min(ynMA):1/fs:max(ynMA);
 [Xpol Ypol] = meshgrid(x,y);
 
 
-t = 1:1000;
-load('inter2.mat');
+t = 1:5000;
+load('zp-B12N12a.mat');
 Zp = inter2;
 Z = -1*Zp(:,:,1);
 h = surf(Xpol,Ypol,Z, 'ZDataSource', 'Z', 'EdgeColor', 'none');

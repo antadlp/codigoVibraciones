@@ -9,12 +9,12 @@ function alturasZ002
 close all
 clear all
 
-filename = '/home/toshiba/movie-mil-zz.xyz';
+filename = '/home/toshiba/movie-B12N12a-zz.xyz';
 fileID3 = fopen(filename, 'w');
 
-for j = 1:1000
+for j = 1:5000
    
-   s = '/home/toshiba/separados-mil-dat/'
+   s = '/home/toshiba/separados-B12N12a-dat/'
    filename = strcat(s,'frame',int2str(j),'.dat');
    XYZFile = importdata(filename);
    format short e
@@ -70,12 +70,12 @@ for j = 1:1000
 
    end
 
-   atoms = importdata('char-mil.dat');
-   aGrid = importdata('mallanMA-mil.dat');
-   mp = importdata('mapnMA-mil.dat');
+   atoms = importdata('char-B12N12a.dat');
+   aGrid = importdata('mallanMA-B12N12a.dat');
+   mp = importdata('mapnMA-B12N12a.dat');
 
-   s = '/home/toshiba/separados-mil-zz-xyz/';
-   s2 = '/home/toshiba/separados-mil-zz-dat/';
+   s = '/home/toshiba/separados-B12N12a-zz-xyz/';
+   s2 = '/home/toshiba/separados-B12N12a-zz-dat/';
    filename1 = strcat(s,'frame',int2str(j),'.xyz');
    filename2 = strcat(s2,'frame',int2str(j),'.dat');
    fileID = fopen(filename1, 'w');
@@ -106,6 +106,8 @@ for j = 1:1000
       end
 
    end
+   fclose(fileID)
+   fclose(fileID2)
 
    j
 

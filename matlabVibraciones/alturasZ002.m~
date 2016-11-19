@@ -9,12 +9,12 @@ function alturasZ002
 close all
 clear all
 
-filename = '/home/toshiba/movie-mil-zz.xyz';
+filename = '/home/toshiba/movie-B12N12a-zz.xyz';
 fileID3 = fopen(filename, 'w');
 
-for j = 1:1000
+for j = 1:5000
    
-   s = '/home/toshiba/separados-mil-dat/'
+   s = '/home/toshiba/separados-B12N12a-dat/'
    filename = strcat(s,'frame',int2str(j),'.dat');
    XYZFile = importdata(filename);
    format short e
@@ -70,11 +70,12 @@ for j = 1:1000
 
    end
 
-   atoms = importdata('char-GP.dat');
-   aGrid = importdata('mallanMA.dat');
+   atoms = importdata('char-B12N12a.dat');
+   aGrid = importdata('mallanMA-B12N12a.dat');
+   mp = importdata('mapnMA-B12N12a.dat');
 
-   s = '/home/toshiba/separados-mil-zz-xyz/';
-   s2 = '/home/toshiba/separados-mil-zz-dat/';
+   s = '/home/toshiba/separados-B12N12a-zz-xyz/';
+   s2 = '/home/toshiba/separados-B12N12a-zz-dat/';
    filename1 = strcat(s,'frame',int2str(j),'.xyz');
    filename2 = strcat(s2,'frame',int2str(j),'.dat');
    fileID = fopen(filename1, 'w');
@@ -86,24 +87,28 @@ for j = 1:1000
    fprintf(fileID3, '%s\t%d\n', 'frame', j);
    for i=1:(nAtoms)
 
+      l = mp(i,2);
       if (atoms{i}=='H')
-         
-         fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2), 0.00);
-         fprintf(fileID3, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2), 0.00);
-         fprintf(fileID2, '%f  %f  %f\n', aGrid(i,1), aGrid(i,2), 0.00);
+
+         fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(l,1), aGrid(l,2), 0.00);
+         fprintf(fileID3, '%c  %f  %f  %f\n', atoms{i}, aGrid(l,1), aGrid(l,2), 0.00);
+         fprintf(fileID2, '%f  %f  %f\n', aGrid(l,1), aGrid(l,2), 0.00);
       
       else
          
-         fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2),...
+         fprintf(fileID, '%c  %f  %f  %f\n', atoms{i}, aGrid(l,1), aGrid(l,2),...
          Zd(i));
  
-         fprintf(fileID3, '%c  %f  %f  %f\n', atoms{i}, aGrid(i,1), aGrid(i,2),...
+         fprintf(fileID3, '%c  %f  %f  %f\n', atoms{i}, aGrid(l,1), aGrid(l,2),...
          Zd(i));
 
-         fprintf(fileID2, '%f  %f  %f\n', aGrid(i,1), aGrid(i,2), Zd(i));
+         fprintf(fileID2, '%f  %f  %f\n', aGrid(l,1), aGrid(l,2), Zd(i));
       end
 
    end
+   fclose(fileID)
+   fclose(fileID2)
+   fclose(fileID3)
 
    j
 

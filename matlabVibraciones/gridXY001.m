@@ -8,7 +8,7 @@ function gridXY001
 
 close all
 clear all
-filename = 'frame1-mil-rota.dat'; % Primer frame del movie a analizar
+filename = 'frame1-B12N12a-rota.dat'; % Primer frame del movie a analizar
 XYZFile = importdata(filename);
 
 format short e 
@@ -102,69 +102,89 @@ for l=1:length(X)
    end
 end
 
+D = importdata('frame1-mil-rota.dat');
+nAtoms = 142;
+fileMap0 = fopen('map0-B12N12a.dat','w');
+for i=1:nAtoms
 
-H11 = [MA(11, 1) MA(11, 2) MA(11, 3)];
-H07 = [MA(7, 1) MA(7, 2) MA(7, 3)];
-H22 = [MA(22, 1) MA(22, 2) MA(22, 3)];
-H04 = [MA(4, 1) MA(4, 2) MA(4, 3)];
-H15 = [MA(15, 1) MA(15, 2) MA(15, 3)];
-H14 = [MA(14, 1) MA(14, 2) MA(14, 3)];
-H01 = [MA(1, 1) MA(1, 2) MA(1, 3)];
-H05 = [MA(5, 1) MA(5, 2) MA(5, 3)];
-H69 = [MA(69, 1) MA(69, 2) MA(69, 3)];
-H47 = [MA(47, 1) MA(47, 2) MA(47, 3)];
-H91 = [MA(91, 1) MA(91, 2) MA(91, 3)];
-H48 = [MA(48, 1) MA(48, 2) MA(48, 3)];
-C88 = [MA(88, 1) MA(88, 2) MA(88, 3)];
-C42 = [MA(42, 1) MA(42, 2) MA(42, 3)];
-C111 = [MA(111, 1) MA(111, 2) MA(111, 3)];
-C43 = [MA(43, 1) MA(43, 2) MA(43, 3)];
-C108 = [MA(108, 1) MA(108, 2) MA(108, 3)];
-C44 = [MA(44, 1) MA(44, 2) MA(44, 3)];
-C124 = [MA(124, 1) MA(124, 2) MA(124, 3)];
-C45 = [MA(45, 1) MA(45, 2) MA(45, 3)];
-C122 = [MA(122, 1) MA(122, 2) MA(122, 3)];
-C46 = [MA(46, 1) MA(46, 2) MA(46, 3)];
-C120 = [MA(120, 1) MA(120, 2) MA(120, 3)];
-C40 = [MA(40, 1) MA(40, 2) MA(40, 3)];
-C117 = [MA(117, 1) MA(117, 2) MA(117, 3)];
-C41 = [MA(41, 1) MA(41, 2) MA(41, 3)];
-C114 = [MA(114, 1) MA(114, 2) MA(114, 3)];
-C34 = [MA(34, 1) MA(34, 2) MA(34, 3)];
-C134 = [MA(134, 1) MA(134, 2) MA(134, 3)];
-C35 = [MA(35, 1) MA(35, 2) MA(35, 3)];
-C31 = [MA(31, 1) MA(31, 2) MA(31, 3)];
-C132 = [MA(132, 1) MA(132, 2) MA(132, 3)];
-C66 = [MA(66, 1) MA(66, 2) MA(66, 3)];
-C129 = [MA(129, 1) MA(129, 2) MA(129, 3)];
-C54 = [MA(54, 1) MA(54, 2) MA(54, 3)];
-C128 = [MA(128, 1) MA(128, 2) MA(128, 3)];
-C126 = [MA(126, 1) MA(126, 2) MA(126, 3)];
-C52 = [MA(52, 1) MA(52, 2) MA(52, 3)];
-C141 = [MA(141, 1) MA(141, 2) MA(141, 3)];
-C125 = [MA(125, 1) MA(125, 2) MA(125, 3)];
-C136 = [MA(136, 1) MA(136, 2) MA(136, 3)];
-C115 = [MA(115, 1) MA(115, 2) MA(115, 3)];
-C140 = [MA(140, 1) MA(140, 2) MA(140, 3)];
-C112 = [MA(112, 1) MA(112, 2) MA(112, 3)];
-C94 = [MA(94, 1) MA(94, 2) MA(94, 3)];
-C137 = [MA(137, 1) MA(137, 2) MA(137, 3)];
-C139 = [MA(139, 1) MA(139, 2) MA(139, 3)];
-C92 = [MA(92, 1) MA(92, 2) MA(92, 3)];
-C138 = [MA(138, 1) MA(138, 2) MA(138, 3)];
-C70 = [MA(70, 1) MA(70, 2) MA(70, 3)];
-C142 = [MA(142, 1) MA(142, 2) MA(142, 3)];
-C135 = [MA(135, 1) MA(135, 2) MA(135, 3)];
-C90 = [MA(90, 1) MA(90, 2) MA(90, 3)];
-C133 = [MA(133, 1) MA(133, 2) MA(133, 3)];
-C68 = [MA(68, 1) MA(68, 2) MA(68, 3)];
-C131 = [MA(131, 1) MA(131, 2) MA(131, 3)];
-C65 = [MA(65, 1) MA(65, 2) MA(65, 3)];
-C30 = [MA(30, 1) MA(30, 2) MA(30, 3)];
-C47 = [MA(47, 1) MA(47, 2) MA(47, 3)];
-C31 = [MA(31, 1) MA(31, 2) MA(31, 3)];
-C48 = [MA(48, 1) MA(48, 2) MA(48, 3)];
-C35 = [MA(35, 1) MA(35, 2) MA(35, 3)];
+   F = abs(X-D(i,1));
+   G = abs(Y-D(i,2));
+
+   H = abs(F + G);
+
+   [I J] = min(H);
+
+   fprintf(fileMap0, '%f  %f\n', i, J);
+   m0(i,:) = [i, J];
+
+end
+fclose(fileMap0)
+
+
+
+
+H11 = [MA(m0(11,2), 1) MA(m0(11,2), 2) MA(m0(11,2), 3)];
+H07 = [MA(m0(7,2), 1) MA(m0(7,2), 2) MA(m0(7,2), 3)];
+H22 = [MA(m0(22,2), 1) MA(m0(22,2), 2) MA(m0(22,2), 3)];
+H04 = [MA(m0(4,2), 1) MA(m0(4,2), 2) MA(m0(4,2), 3)];
+H15 = [MA(m0(15,2), 1) MA(m0(15,2), 2) MA(m0(15,2), 3)];
+H14 = [MA(m0(14,2), 1) MA(m0(14,2), 2) MA(m0(14,2), 3)];
+H01 = [MA(m0(1,2), 1) MA(m0(1,2), 2) MA(m0(1,2), 3)];
+H05 = [MA(m0(5,2), 1) MA(m0(5,2), 2) MA(m0(5,2), 3)];
+H69 = [MA(m0(69,2), 1) MA(m0(69,2), 2) MA(m0(69,2), 3)];
+H47 = [MA(m0(47,2), 1) MA(m0(47,2), 2) MA(m0(47,2), 3)];
+H91 = [MA(m0(91,2), 1) MA(m0(91,2), 2) MA(m0(91,2), 3)];
+H48 = [MA(m0(48,2), 1) MA(m0(48,2), 2) MA(m0(48,2), 3)];
+C88 = [MA(m0(88,2), 1) MA(m0(88,2), 2) MA(m0(88,2), 3)];
+C42 = [MA(m0(42,2), 1) MA(m0(42,2), 2) MA(m0(42,2), 3)];
+C111 = [MA(m0(111,2), 1) MA(m0(111,2), 2) MA(m0(111,2), 3)];
+C43 = [MA(m0(43,2), 1) MA(m0(43,2), 2) MA(m0(43,2), 3)];
+C108 = [MA(m0(108,2), 1) MA(m0(108,2), 2) MA(m0(108,2), 3)];
+C44 = [MA(m0(44,2), 1) MA(m0(44,2), 2) MA(m0(44,2), 3)];
+C124 = [MA(m0(124,2), 1) MA(m0(124,2), 2) MA(m0(124,2), 3)];
+C45 = [MA(m0(45,2), 1) MA(m0(45,2), 2) MA(m0(45,2), 3)];
+C122 = [MA(m0(122,2), 1) MA(m0(122,2), 2) MA(m0(122,2), 3)];
+C46 = [MA(m0(46,2), 1) MA(m0(46,2), 2) MA(m0(46,2), 3)];
+C120 = [MA(m0(120,2), 1) MA(m0(120,2), 2) MA(m0(120,2), 3)];
+C40 = [MA(m0(40,2), 1) MA(m0(40,2), 2) MA(m0(40,2), 3)];
+C117 = [MA(m0(117,2), 1) MA(m0(117,2), 2) MA(m0(117,2), 3)];
+C41 = [MA(m0(41,2), 1) MA(m0(41,2), 2) MA(m0(41,2), 3)];
+C114 = [MA(m0(114,2), 1) MA(m0(114,2), 2) MA(m0(114,2), 3)];
+C34 = [MA(m0(34,2), 1) MA(m0(34,2), 2) MA(m0(34,2), 3)];
+C134 = [MA(m0(134,2), 1) MA(m0(134,2), 2) MA(m0(134,2), 3)];
+C35 = [MA(m0(35,2), 1) MA(m0(35,2), 2) MA(m0(35,2), 3)];
+C31 = [MA(m0(31,2), 1) MA(m0(31,2), 2) MA(m0(31,2), 3)];
+C132 = [MA(m0(132,2), 1) MA(m0(132,2), 2) MA(m0(132,2), 3)];
+C66 = [MA(m0(66,2), 1) MA(m0(66,2), 2) MA(m0(66,2), 3)];
+C129 = [MA(m0(129,2), 1) MA(m0(129,2), 2) MA(m0(129,2), 3)];
+C54 = [MA(m0(54,2), 1) MA(m0(54,2), 2) MA(m0(54,2), 3)];
+C128 = [MA(m0(128,2), 1) MA(m0(128,2), 2) MA(m0(128,2), 3)];
+C126 = [MA(m0(126,2), 1) MA(m0(126,2), 2) MA(m0(126,2), 3)];
+C52 = [MA(m0(52,2), 1) MA(m0(52,2), 2) MA(m0(52,2), 3)];
+C141 = [MA(m0(141,2), 1) MA(m0(141,2), 2) MA(m0(141,2), 3)];
+C125 = [MA(m0(125,2), 1) MA(m0(125,2), 2) MA(m0(125,2), 3)];
+C136 = [MA(m0(136,2), 1) MA(m0(136,2), 2) MA(m0(136,2), 3)];
+C115 = [MA(m0(115,2), 1) MA(m0(115,2), 2) MA(m0(115,2), 3)];
+C140 = [MA(m0(140,2), 1) MA(m0(140,2), 2) MA(m0(140,2), 3)];
+C112 = [MA(m0(112,2), 1) MA(m0(112,2), 2) MA(m0(112,2), 3)];
+C94 = [MA(m0(94,2), 1) MA(m0(94,2), 2) MA(m0(94,2), 3)];
+C137 = [MA(m0(137,2), 1) MA(m0(137,2), 2) MA(m0(137,2), 3)];
+C139 = [MA(m0(139,2), 1) MA(m0(139,2), 2) MA(m0(139,2), 3)];
+C92 = [MA(m0(92,2), 1) MA(m0(92,2), 2) MA(m0(92,2), 3)];
+C138 = [MA(m0(138,2), 1) MA(m0(138,2), 2) MA(m0(138,2), 3)];
+C70 = [MA(m0(70,2), 1) MA(m0(70,2), 2) MA(m0(70,2), 3)];
+C142 = [MA(m0(142,2), 1) MA(m0(142,2), 2) MA(m0(142,2), 3)];
+C135 = [MA(m0(135,2), 1) MA(m0(135,2), 2) MA(m0(135,2), 3)];
+C90 = [MA(m0(90,2), 1) MA(m0(90,2), 2) MA(m0(90,2), 3)];
+C133 = [MA(m0(133,2), 1) MA(m0(133,2), 2) MA(m0(133,2), 3)];
+C68 = [MA(m0(68,2), 1) MA(m0(68,2), 2) MA(m0(68,2), 3)];
+C131 = [MA(m0(131,2), 1) MA(m0(131,2), 2) MA(m0(131,2), 3)];
+C65 = [MA(m0(65,2), 1) MA(m0(65,2), 2) MA(m0(65,2), 3)];
+C30 = [MA(m0(30,2), 1) MA(m0(30,2), 2) MA(m0(30,2), 3)];
+C47 = [MA(m0(47,2), 1) MA(m0(47,2), 2) MA(m0(47,2), 3)];
+C31 = [MA(m0(31,2), 1) MA(m0(31,2), 2) MA(m0(31,2), 3)];
+C48 = [MA(m0(48,2), 1) MA(m0(48,2), 2) MA(m0(48,2), 3)];
+C35 = [MA(m0(35,2), 1) MA(m0(35,2), 2) MA(m0(35,2), 3)];
 
 
 [xY01 lineY01 ] = makeAtomsLine(H11, H07);
@@ -211,8 +231,8 @@ r = .3;
 ep = 20;
 offset = 0;
 
-sHor = '/home/toshiba/gridXY-mil/horizontales-mil-';
-sVert = '/home/toshiba/gridXY-mil/verticales-mil-';
+sHor = '/home/toshiba/gridXY-B12N12a/horizontales-B12N12a-';
+sVert = '/home/toshiba/gridXY-B12N12a/verticales-B12N12a-';
 [xX02 lineaX02] = makeAtomsLine(H69, H47);
 listaHor02 = crossLine2dAtom(MA, xX02, lineaX02, r, ep, 1);
 arrHor02 = arrangeAtomsLine(xX02, lineaX02, MA, listaHor02, 0.001);
@@ -1164,7 +1184,7 @@ A2 = [arrVert21(length(arrVert21), 1) arrVert21(length(arrVert21), 2)];
 plot(xY21t, lineaY21t)
 
 
-namefile = 'nMA-mil.dat';
+namefile = 'nMA-B12N12a.dat';
 fileID = fopen(namefile, 'w');
 for i=1:length(nMA(:,1))
    fprintf(fileID, '%f\t %f\t %f\t\n', nMA(i,1),...
@@ -1227,15 +1247,15 @@ end
 axis([limitXIzq limitXDer limitYAbj limitYArr]);
 grid on
 
-save('nMA-mil', 'nMA')
+save('nMA-B12N12a', 'nMA')
 
-%A = importdata('nMA-mil');
+%A = importdata('nMA-B12N12a');
 A = nMA;
-B = importdata('char-mil.dat');
-C = importdata('frame1-mil-rota.dat');
+B = importdata('char-B12N12a.dat');
+C = importdata('frame1-B12N12a-rota.dat');
 
-fileID = fopen('mallanMA-mil.xyz','w');
-fileID2 = fopen('mallanMA-mil.dat','w');
+fileID = fopen('mallanMA-B12N12a.xyz','w');
+fileID2 = fopen('mallanMA-B12N12a.dat','w');
 nAtoms = 142;
 
 [A1 A2] = unique(A(:,1));
@@ -1264,9 +1284,9 @@ fclose('all');
 
 % obteniendo el mapeo de frames originales con el frame nMA
 
-D = importdata('mallanMA-mil.dat');
+D = importdata('mallanMA-B12N12a.dat');
 
-fileMap = fopen('mapnMA-mil.dat','w');
+fileMap = fopen('mapnMA-B12N12a.dat','w');
 for i=1:nAtoms
 
    F = abs(X-D(i,1));

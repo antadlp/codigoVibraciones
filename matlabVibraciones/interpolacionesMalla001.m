@@ -5,7 +5,7 @@ clear all
 
 fs = 10;
 
-nMA = importdata('nMA-mil.dat');
+nMA = importdata('nMA-B12N12a.dat');
 
 
 xnMA = nMA(:,2);
@@ -21,11 +21,11 @@ y = min(ynMA):1/fs:max(ynMA);
 [Xpol Ypol] = meshgrid(x,y);
 
 
-s0 = '/home/toshiba/gridXY-mil/'
-for al=1:1000
+s0 = '/home/toshiba/gridXY-B12N12a/'
+for al=1:5000
 
 
-   s = strcat('/home/toshiba/separados-mil-zz-dat/frame', int2str(al), '.dat');
+   s = strcat('/home/toshiba/separados-B12N12a-zz-dat/frame', int2str(al), '.dat');
    filename = s;
    zframe = importdata(filename);
 
@@ -39,7 +39,7 @@ for al=1:1000
    %   toSpl = 0;
    %   clear Ahr, s, s2, tAhr, toSpl;
    
-      s = strcat(s0,'horizontales-mil-', int2str(i));
+      s = strcat(s0,'horizontales-B12N12a-', int2str(i));
       s2 = strcat('splineHor', i);
       filename = s;
       Ahr = importdata(filename);
@@ -136,7 +136,7 @@ for al=1:1000
    %   toSpl = 0;
    %   clear Ahr, s, s2, tAhr, toSpl;
    
-      s = strcat(s0,'verticales-mil-', int2str(i));
+      s = strcat(s0,'verticales-B12N12a-', int2str(i));
       s2 = strcat('splineVert', i);
       filename = s;
       Avt = importdata(filename);
@@ -237,7 +237,7 @@ for al=1:1000
    inter2(:,:,al) = interp2(XNMA,YNMA, interTotal(:,:,al)',Xpol,Ypol);
 
    al
-   s2 = '/home/toshiba/mallaInter-mil/frame';
+   s2 = '/home/toshiba/mallaInter-B12N12a/frame';
    filename2 = strcat(s2, int2str(al));
    fileID2 = fopen(filename2, 'w');
 
@@ -256,7 +256,7 @@ for al=1:1000
 
 end
 
-save('inter2', 'inter2')
+save('zp-B12N12a', 'inter2')
 
 %t = 1:100;
 %for i=1:length(t)
